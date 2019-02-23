@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewData["Title"] = "ProductDetail";
+}
+<link href="~/css/ProductDetail.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                        <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+                        <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+                        <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                    </div>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                    </ul>
+
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">CATS</h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="sr-only">Four out of Five Stars</span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                <span class="label label-success">61</span>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="monospaced">Write a Review</span>
+                            </div>
+                        </div><!-- end row -->
+                        @*<span class="review-no">41 reviews</span>*@
+                    </div>
+                    <p class="product-description">The cat or domestic cat is a small carnivorous mammal. It is the only domesticated species in the family Felidae</p>
+                    <h4 class="price">Price: <span>25000</span></h4>
+
+                    <h5 class="sizes">
+                        Brand:
+                        <span class="size" data-toggle="tooltip" title="brand">Apple</span>
+
+                    </h5>
+                    <h5 class=" sizes">
+                        Model:
+                        <span class="model" data-toggle="tooltip"> 6s</span>
+
+                    </h5>
+                    <div class="action">
+
+                        <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row text-success alter alert-success">
+    <h2 class="text-success">Compare Prices</h2>
+    <table class="table table-responsive">
+        <tr>
+            <th>Store</th>
+            <th>Price</th>
+            <th>Logo</th>
+            <th>Condition</th>
+        </tr>
+        <tr>
+            <th><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></th>
+            <th>200</th>
+            <th><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></th>
+            <th> New</th>
+        </tr>
+    </table>
+</div>
+<br />
+<div class="row text-success alter alert-success">
+    <h2 class="card-header">Related Products</h2>
+
+    <div class="col-md-3 text-center">
+        <img src="~/images/download.jpg" alt="Card image">
+
+        <div>
+            <br />
+            <a href="#chapter4"><strong>Iphone 6</strong></a>
+        </div>
+        <br />
+        <div>
+            <span>25000</span>
+        </div>    <br />
+        <div>
+            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+        </div>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <img src="~/images/download.jpg" alt="Card image">
+
+        <div>
+            <br />
+            <a href="#chapter4"><strong>Iphone 6s</strong></a>
+        </div>
+        <br />
+        <div>
+            <span>30000</span>
+        </div>    <br />
+        <div>
+            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+        </div>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <img src="~/images/download.jpg" alt="Card image">
+
+        <div>
+            <br />
+            <a href="#chapter4"><strong>Iphone 7</strong></a>
+        </div>
+        <br />
+        <div>
+            <span>40000</span>
+        </div>    <br />
+        <div>
+            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+        </div>
+    </div>
+
+    <div class="col-md-3 text-center">
+        <img src="~/images/download.jpg" alt="Card image">
+
+        <div><br />
+            <a href="#chapter4"><strong>Iphone X</strong></a>
+        </div>
+        <br />
+        <div>
+            <span>120000</span>
+        </div>    <br />
+        <div>
+            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+        </div>
+    </div>
+
+</div> <br />  <br /> <br />
+
+<div id="disqus_thread"></div>
+
+@section Scripts{
+
+
+
+    <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thetaproject.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+}
