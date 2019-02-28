@@ -1,193 +1,275 @@
-﻿
+﻿@model Product
+
 @{
     ViewData["Title"] = "ProductDetail";
 }
 <link href="~/css/ProductDetail.css" rel="stylesheet" />
 
-<div class=" row alter alter alert-success">
-    <div class="card">
-        <div class="container-fliud alter alert-success">
-            <div class="wrapper row">
-                <div class="preview col-md-6">
+        <div class="alter alter-danger ">
+        
+        </div>
+        <div class="container-fliud alert alert-success">
+            <div class="wrapper row alert alert-success">
 
+                <div class="preview col-md-5 text-center">
+
+                    @{ 
+                       string[] Images = @Model.ProductImage.Split(',');
+                    }
                     <div class="preview-pic tab-content">
-                        <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
-                        <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-                        <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-                        <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                        <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+
+                        <div class="tab-pane active " id="pic-1"><img src="@Images[0]" class="img img-responsive" style="max-height:300px ; max-width:200px" /></div>
+                       
                     </div>
+                  
                     <ul class="preview-thumbnail nav nav-tabs">
-                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                        <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+
+                        @try
+                        {
+                            @if (Images[0] != null)
+                            {
+                                <li class="active">
+                                    <a href="@Model.ProductUrl" data-toggle="tab">
+                                        <img src="@Images[0]" class="img img-responsive" />
+                                    </a>
+                                </li>
+                            }}
+                        catch (Exception e)
+                        {  }
+
+                        @try
+                        {
+                            @if (Images[1] != null)
+                            {
+                                <li>
+                                    <a data-target="#pic-1" data-toggle="tab">
+                                        <img src="@Images[1]" class="img img-responsive"  />
+                                    </a>
+                                </li>
+                            }}
+                        catch (Exception e)
+                        { }
+
+                        @try
+                        {
+                            @if (Images[2] != null)
+                            {
+                                <li>
+                                    <a data-target="#pic-1" data-toggle="tab">
+                                        <img src="@Images[2]" class="img img-responsive"  />
+                                    </a>
+                                </li>
+                            }}
+                        catch (Exception e)
+                        {       }
+
+
+                        @try
+                        {
+                            @if (Images[3] != null)
+                            {
+                                <li>
+                                    <a data-target="#pic-1" data-toggle="tab">
+                                        <img src="@Images[3]" class="img img-responsive"  />
+                                    </a>
+                                </li>
+                            }}
+                        catch (Exception e)
+                        {      }
+
+
+                        @try
+                        {
+                            @if (Images[4] != null)
+                            {
+                                <li>
+                                    <a data-target="#pic-1" data-toggle="tab">
+                                        <img src="@Images[4]" class="img img-responsive" />
+                                    </a>
+                                </li>
+                                }
+                            }
+                        catch (Exception e)
+                        {      }
+
+
                     </ul>
-
+                    
                 </div>
-                <div class="details col-md-6">
-                    <h3 class="product-title">CATS</h3>
-                    <div class="rating">
-                        <div class="stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                
+                @if(Model != null)
+                {
+                    <div class="details col-md-7">
+                        <h3 class="product-title">@Model.ProductName</h3>
+                    
+                            <div class="row col-md-6">
+                                <div class="col-md-6">
+                                    <span class="sr-only">Four out of Five Stars</span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="label label-success">@Model.ProductViews</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="monospaced">Write a Review</span>
+                                </div>
+                            </div>
+                            @*<span class="review-no">41 reviews</span>*@
+                       
+                        <p class="product-description">@Model.ProductMetaDisc</p>
+                        <h4 class="price">Price: <span>@Model.ProductPrice</span></h4>
+
+                        <h5 class="sizes">
+                            Brand:
+                            <span class="size" data-toggle="tooltip" title="brand">@Model.ProductBrand</span>
+
+                        </h5>
+                        <h5 class=" sizes">
+                            Model:
+                            <span class="model" data-toggle="tooltip">4s</span>
+
+                        </h5><br />
+                        <div class="action">
+
+                            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <span class="sr-only">Four out of Five Stars</span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                                <span class="label label-success">61</span>
-                            </div>
-                            <div class="col-md-3">
-                                <span class="monospaced">Write a Review</span>
-                            </div>
-                        </div><!-- end row -->
-                        @*<span class="review-no">41 reviews</span>*@
                     </div>
-                    <p class="product-description">The cat or domestic cat is a small carnivorous mammal. It is the only domesticated species in the family Felidae</p>
-                    <h4 class="price">Price: <span>25000</span></h4>
+                }
+            </div>
 
-                    <h5 class="sizes">
-                        Brand:
-                        <span class="size" data-toggle="tooltip" title="brand">Apple</span>
 
-                    </h5>
-                    <h5 class=" sizes">
-                        Model:
-                        <span class="model" data-toggle="tooltip"> 6s</span>
+        </div>
 
-                    </h5>
-                    <div class="action">
+ <br />
+@if (Model != null)
 
-                        <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                    </div>
-                </div>
+{
+
+    <div class="row text-success alter alert-success">
+        <h2 class="text-success">Compare Prices</h2>
+        <table class="table table-responsive">
+            <tr>
+                <th>Store</th>
+                <th>Price</th>
+                <th>Logo</th>
+                <th>Condition</th>
+            </tr>
+            <tbody>
+                
+                    <tr>
+                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                        <td>@Model.ProductPrice</td>
+                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                        <td> @Model.ProductStatus</td>
+                    </tr>
+                
+                </tbody>
+        </table>
+    </div>
+    
+}
+
+<br />
+@if (Model != null)
+{
+   
+    <div class="row text-success alter alert-success">
+        <h2 class="card-header">Related Products</h2>
+
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
+
+            <div>
+                <br />
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+            </div>
+            <br />
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row text-success alter alert-success">
-    <h2 class="text-success">Compare Prices</h2>
-    <table class="table table-responsive">
-        <tr>
-            <th>Store</th>
-            <th>Price</th>
-            <th>Logo</th>
-            <th>Condition</th>
-        </tr>
-        <tr>
-            <th><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></th>
-            <th>200</th>
-            <th><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></th>
-            <th> New</th>
-        </tr>
-    </table>
-</div>
-<br />
-<div class="row text-success alter alert-success">
-    <h2 class="card-header">Related Products</h2>
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-    <div class="col-md-3 text-center">
-        <img src="~/images/download.jpg" alt="Card image">
-
-        <div>
+            <div>
+                <br />
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+            </div>
             <br />
-            <a href="#chapter4"><strong>Iphone 6</strong></a>
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
         </div>
-        <br />
-        <div>
-            <span>25000</span>
-        </div>    <br />
-        <div>
-            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-        </div>
-    </div>
 
-    <div class="col-md-3 text-center">
-        <img src="~/images/download.jpg" alt="Card image">
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-        <div>
+            <div>
+                <br />
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+            </div>
             <br />
-            <a href="#chapter4"><strong>Iphone 6s</strong></a>
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
         </div>
-        <br />
-        <div>
-            <span>30000</span>
-        </div>    <br />
-        <div>
-            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-        </div>
-    </div>
 
-    <div class="col-md-3 text-center">
-        <img src="~/images/download.jpg" alt="Card image">
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-        <div>
+            <div>
+                <br />
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+            </div>
             <br />
-            <a href="#chapter4"><strong>Iphone 7</strong></a>
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
         </div>
-        <br />
-        <div>
-            <span>40000</span>
-        </div>    <br />
-        <div>
-            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-        </div>
-    </div>
 
-    <div class="col-md-3 text-center">
-        <img src="~/images/download.jpg" alt="Card image">
+    </div> }<br /> <br /> <br />
 
-        <div><br />
-            <a href="#chapter4"><strong>Iphone X</strong></a>
-        </div>
-        <br />
-        <div>
-            <span>120000</span>
-        </div>    <br />
-        <div>
-            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-        </div>
-    </div>
+    <div id="disqus_thread"></div>
 
-</div> <br />  <br /> <br />
-
-<div id="disqus_thread"></div>
-
-@section Scripts{
+    @section Scripts{
 
 
 
-    <script>
+        <script>
 
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://thetaproject.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://thetaproject.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
 
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-}
+    }

@@ -18,10 +18,12 @@ namespace FinalYearProject.Controllers
 
         }
 
-        public IActionResult ProductDetail()
+        public IActionResult ProductDetail(int id)
         {
 
-            return View();
+            Product P = ORM.Product.Where(m => m.ProductId == id).FirstOrDefault<Product>();
+
+            return View(P);
         }
         
        
