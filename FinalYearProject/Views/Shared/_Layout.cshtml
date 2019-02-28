@@ -42,9 +42,9 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
-        <div class="alert alert-info">
+        @*<div class="alert alert-info">
             this is header
-        </div>
+        </div>*@
         @RenderBody()
         <hr />
         <footer>
@@ -55,6 +55,11 @@
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="wm-zoom/jquery.wm-zoom-1.0.min.js"></script>
+
+
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">

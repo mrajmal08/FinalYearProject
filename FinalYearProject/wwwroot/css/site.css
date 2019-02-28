@@ -22,7 +22,15 @@ body {
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }
-
+.preview-thumbnail .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    width: 100px;
+    height: 200px;
+}
+.nav > li > a > img {
+    max-width: 100%;
+}
 /* QR code generator */
 #qrCode {
     margin: 15px;

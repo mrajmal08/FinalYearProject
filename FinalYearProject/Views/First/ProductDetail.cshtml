@@ -3,252 +3,237 @@
 @{
     ViewData["Title"] = "ProductDetail";
 }
-<link href="~/css/ProductDetail.css" rel="stylesheet" />
+@*<link href="~/css/ProductDetail.css" rel="stylesheet" />*@
 
-        <div class="alter alter-danger ">
-        
+
+@*<div class="container-fliud alert alert-success">*@
+<div class="wm-zoom-container alert alert-danger container-fluid">
+
+    <div class="zoom preview col-md-5 alert alert-success text-center">
+
+        @{
+            string[] Images = @Model.ProductImage.Split(',');
+        }
+        <div class="preview-pic tab-content text-center">
+
+            <div class="wm-zoom-box tab-pane active" id="pic-1">
+            <img src="@Images[0]" class="wm-zoom-default-img img img-responsive" style="max-height:600px ; max-width:500px" /></div>
+
         </div>
-        <div class="container-fliud alert alert-success">
-            <div class="wrapper row alert alert-success">
 
-                <div class="preview col-md-5 text-center">
+        <ul class="preview-thumbnail nav nav-tabs">
 
-                    @{ 
-                       string[] Images = @Model.ProductImage.Split(',');
-                    }
-                    <div class="preview-pic tab-content">
-
-                        <div class="tab-pane active " id="pic-1"><img src="@Images[0]" class="img img-responsive" style="max-height:300px ; max-width:200px" /></div>
-                       
-                    </div>
-                  
-                    <ul class="preview-thumbnail nav nav-tabs">
-
-                        @try
-                        {
-                            @if (Images[0] != null)
-                            {
-                                <li class="active">
-                                    <a href="@Model.ProductUrl" data-toggle="tab">
-                                        <img src="@Images[0]" class="img img-responsive" />
-                                    </a>
-                                </li>
-                            }}
-                        catch (Exception e)
-                        {  }
-
-                        @try
-                        {
-                            @if (Images[1] != null)
-                            {
-                                <li>
-                                    <a data-target="#pic-1" data-toggle="tab">
-                                        <img src="@Images[1]" class="img img-responsive"  />
-                                    </a>
-                                </li>
-                            }}
-                        catch (Exception e)
-                        { }
-
-                        @try
-                        {
-                            @if (Images[2] != null)
-                            {
-                                <li>
-                                    <a data-target="#pic-1" data-toggle="tab">
-                                        <img src="@Images[2]" class="img img-responsive"  />
-                                    </a>
-                                </li>
-                            }}
-                        catch (Exception e)
-                        {       }
-
-
-                        @try
-                        {
-                            @if (Images[3] != null)
-                            {
-                                <li>
-                                    <a data-target="#pic-1" data-toggle="tab">
-                                        <img src="@Images[3]" class="img img-responsive"  />
-                                    </a>
-                                </li>
-                            }}
-                        catch (Exception e)
-                        {      }
-
-
-                        @try
-                        {
-                            @if (Images[4] != null)
-                            {
-                                <li>
-                                    <a data-target="#pic-1" data-toggle="tab">
-                                        <img src="@Images[4]" class="img img-responsive" />
-                                    </a>
-                                </li>
-                                }
-                            }
-                        catch (Exception e)
-                        {      }
-
-
-                    </ul>
-                    
-                </div>
-                
-                @if(Model != null)
+            @try
+            {
+                @if (Images[0] != null)
                 {
-                    <div class="details col-md-7">
-                        <h3 class="product-title">@Model.ProductName</h3>
-                    
-                            <div class="row col-md-6">
-                                <div class="col-md-6">
-                                    <span class="sr-only">Four out of Five Stars</span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                                    <span class="label label-success">@Model.ProductViews</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="monospaced">Write a Review</span>
-                                </div>
-                            </div>
-                            @*<span class="review-no">41 reviews</span>*@
-                       
-                        <p class="product-description">@Model.ProductMetaDisc</p>
-                        <h4 class="price">Price: <span>@Model.ProductPrice</span></h4>
+                    <li class="active">
+                        <a href="@Model.ProductUrl" data-toggle="tab">
+                            <img src="@Images[0]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                        </a>
+                    </li>
+                }}
+            catch (Exception e)
+            { }
 
-                        <h5 class="sizes">
-                            Brand:
-                            <span class="size" data-toggle="tooltip" title="brand">@Model.ProductBrand</span>
+            @try
+            {
+                @if (Images[1] != null)
+                {
+                    <li>
+                        <a data-target="#pic-1" data-toggle="tab">
+                            <img src="@Images[1]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                        </a>
+                    </li>
+                }}
+            catch (Exception e)
+            { }
 
-                        </h5>
-                        <h5 class=" sizes">
-                            Model:
-                            <span class="model" data-toggle="tooltip">4s</span>
+            @try
+            {
+                @if (Images[2] != null)
+                {
+                    <li>
+                        <a data-target="#pic-1" data-toggle="tab">
+                            <img src="@Images[2]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                        </a>
+                    </li>
+                }}
+            catch (Exception e)
+            { }
 
-                        </h5><br />
-                        <div class="action">
 
-                            <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                        </div>
-                    </div>
+            @try
+            {
+                @if (Images[3] != null)
+                {
+                    <li>
+                        <a data-target="#pic-1" data-toggle="tab">
+                            <img src="@Images[3]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                        </a>
+                    </li>
+                }}
+            catch (Exception e)
+            { }
+
+
+            @try
+            {
+                @if (Images[4] != null)
+                {
+                    <li>
+                        <a data-target="#pic-1" data-toggle="tab">
+                            <img src="@Images[4]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                        </a>
+                    </li>
                 }
+            }
+            catch (Exception e)
+            { }
+        </ul>
+    </div>
+    @if (Model != null)
+    {
+        <div class="col-md-7 alert alert-warning" style="height:440px;"  >
+            <h3 class="product-title">@Model.ProductName</h3>
+            <div>
+                <span class="sr-only">Four out of Five Stars</span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><br />
+                <span class="label label-success">@Model.ProductViews</span>
+                <span class="monospaced"> Write a Review</span><br /><br />
+                <p class="product-description">@Model.ProductMetaDisc</p><br />
+                <h4 class="price"><strong>Price: </strong><span class="border-bottom-0">@Model.ProductPrice</span></h4><br />
+                <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
+                <div class="action">
+
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
+          </div>}
 
-
-        </div>
-
- <br />
-@if (Model != null)
-
-{
-
-    <div class="row text-success alter alert-success">
-        <h2 class="text-success">Compare Prices</h2>
-        <table class="table table-responsive">
-            <tr>
-                <th>Store</th>
-                <th>Price</th>
-                <th>Logo</th>
-                <th>Condition</th>
-            </tr>
-            <tbody>
-                
+</div>
+    
+    @if (Model != null)
+    {
+        <div class="row text-success alter alert-success container-fluid">
+            <h2 class="text-success">Related Website</h2>
+            <table class="table table-responsive">
+                <tr>
+                    <th>Store</th>
+                    <th>Price</th>
+                    <th>Logo</th>
+                    <th>Condition</th>
+                </tr>
+                <tbody>
                     <tr>
                         <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
-                        <td>@Model.ProductPrice</td>
-                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                        <td>@Model.ProductPrice <sup>15% off</sup></td>
+                        <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
                         <td> @Model.ProductStatus</td>
                     </tr>
-                
+
                 </tbody>
-        </table>
-    </div>
-    
-}
-
-<br />
-@if (Model != null)
-{
-   
-    <div class="row text-success alter alert-success">
-        <h2 class="card-header">Related Products</h2>
-
-        <div class="col-md-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
-
-            <div>
-                <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-            </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
+            </table>
         </div>
+    }
+    <br />
+    @if (Model != null)
+    {
 
-        <div class="col-md-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+        <div class="row text-success alter alert-success container-fluid">
+            <h2 class="card-header">You Can Also Like</h2>
 
-            <div>
+            <div class="col-md-3 text-center">
+                <img src="~/images/download.jpg" alt="Card image">
+
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
-        </div>
 
-        <div class="col-md-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+            <div class="col-md-3 text-center">
+                <img src="~/images/download.jpg" alt="Card image">
 
-            <div>
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
-        </div>
 
-        <div class="col-md-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+            <div class="col-md-3 text-center">
+                <img src="~/images/download.jpg" alt="Card image">
 
-            <div>
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
-        </div>
 
-    </div> }<br /> <br /> <br />
+            <div class="col-md-3 text-center">
+                <img src="~/images/download.jpg" alt="Card image">
+
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
+                <br />
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
+            </div>
+
+        </div>  }<br /> <br /> <br />
 
     <div id="disqus_thread"></div>
 
     @section Scripts{
 
 
+        <script>
+            $('.my-zoom').WMZoom({
+                config: {
+                    
+                     stageW: 500,
+                    stageH: 400,
+                    inner: false,
+                    position: 'right',
+
+                    margin: 10
+                    
+                }
+});
+
+
+        </script>
 
         <script>
 
