@@ -14,10 +14,11 @@
         @{
             string[] Images = @Model.ProductImage.Split(',');
         }
-        <div class="preview-pic tab-content text-center">
+        <div class="my-zoom wm-zoom-container">
 
-            <div class="wm-zoom-box tab-pane active" id="pic-1">
-            <img src="@Images[0]" class="wm-zoom-default-img img img-responsive" style="max-height:600px ; max-width:500px" /></div>
+            <div class="myCloudZoom" id="pic-1">
+                <img src="@Images[0]" class="cloudzoom img img-responsive" data-cloudzoom="zoomImage:@Images[0]" />
+            </div>
 
         </div>
 
@@ -92,9 +93,11 @@
             { }
         </ul>
     </div>
+
+
     @if (Model != null)
     {
-        <div class="col-md-7 alert alert-warning" style="height:440px;"  >
+        <div class="col-md-7 alert alert-warning">
             <h3 class="product-title">@Model.ProductName</h3>
             <div>
                 <span class="sr-only">Four out of Five Stars</span>
@@ -113,148 +116,163 @@
                     <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
                 </div>
             </div>
-          </div>}
+        </div>}
 
 </div>
-    
-    @if (Model != null)
-    {
-        <div class="row text-success alter alert-success container-fluid">
-            <h2 class="text-success">Related Website</h2>
-            <table class="table table-responsive">
+
+@if (Model != null)
+{
+    <div class="row text-success alter alert-success container-fluid">
+        <h2 class="text-success">Related Website</h2>
+        <table class="table table-responsive">
+            <tr>
+                <th>Store</th>
+                <th>Price</th>
+                <th>Logo</th>
+                <th>Condition</th>
+            </tr>
+            <tbody>
                 <tr>
-                    <th>Store</th>
-                    <th>Price</th>
-                    <th>Logo</th>
-                    <th>Condition</th>
+                    <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                    <td>@Model.ProductPrice <sup>15% off</sup></td>
+                    <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
+                    <td> @Model.ProductStatus</td>
                 </tr>
-                <tbody>
-                    <tr>
-                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
-                        <td>@Model.ProductPrice <sup>15% off</sup></td>
-                        <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
-                        <td> @Model.ProductStatus</td>
-                    </tr>
 
-                </tbody>
-            </table>
+            </tbody>
+        </table>
+    </div>
+}
+<br />
+@if (Model != null)
+{
+
+    <div class="row text-success alter alert-success container-fluid">
+        <h2 class="card-header">You Can Also Like</h2>
+
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
+
+            <div>
+                <br />
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+            </div>
+            <br />
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
         </div>
-    }
-    <br />
-    @if (Model != null)
-    {
 
-        <div class="row text-success alter alert-success container-fluid">
-            <h2 class="card-header">You Can Also Like</h2>
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-            <div class="col-md-3 text-center">
-                <img src="~/images/download.jpg" alt="Card image">
-
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
+            <div>
                 <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
             </div>
+            <br />
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
+        </div>
 
-            <div class="col-md-3 text-center">
-                <img src="~/images/download.jpg" alt="Card image">
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
+            <div>
                 <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
             </div>
+            <br />
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+            </div>
+        </div>
 
-            <div class="col-md-3 text-center">
-                <img src="~/images/download.jpg" alt="Card image">
+        <div class="col-md-3 text-center">
+            <img src="~/images/download.jpg" alt="Card image">
 
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
+            <div>
                 <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
             </div>
-
-            <div class="col-md-3 text-center">
-                <img src="~/images/download.jpg" alt="Card image">
-
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
-                <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+            <br />
+            <div>
+                <span>@Model.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
             </div>
+        </div>
 
-        </div>  }<br /> <br /> <br />
+    </div>}<br /> <br /> <br />
 
-    <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 
-    @section Scripts{
+@section Scripts{
 
-
-        <script>
-            $('.my-zoom').WMZoom({
-                config: {
-                    
-                     stageW: 500,
-                    stageH: 400,
-                    inner: false,
-                    position: 'right',
-
-                    margin: 10
-                    
-                }
-});
-
+    <script type="text/javascript">
+        $(function () {
+            // Bind a click event to a Cloud Zoom instance.
+            $('#myCloudZoom').bind('click', function () {
+                // On click, get the Cloud Zoom object,
+                var cloudZoom = $(this).data('CloudZoom');
+                // Close the zoom window (from 2.1 rev 1211291557)
+                cloudZoom.closeZoom();
+                // and pass Cloud Zoom's image list to Fancy Box.
+                $.fancybox.open(cloudZoom.getGalleryList());
+                return false;
+            });
+        });
 
         </script>
 
         <script>
+            $('.my-zoom').WMZoom({
+                config: {
 
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function () { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
+                stageW: 300,
+           stageH: 300,
+           inner: false,
+           position: 'right',
+
+           margin: 10
+
+       }
+});
+
+
+    </script>
+
+    <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
                 s.src = 'https://thetaproject.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
             })();
 
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-    }
+}
