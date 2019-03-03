@@ -7,92 +7,98 @@
 
 
 @*<div class="container-fliud alert alert-success">*@
-<div class="wm-zoom-container alert alert-danger container-fluid">
+
+<div class="wm-zoom-container alert alert-danger container-fluid" style="clear:both">
+
+
+
 
     <div class="zoom preview col-md-5 alert alert-success text-center">
 
-        @{
-            string[] Images = @Model.ProductImage.Split(',');
-        }
-        <div class="my-zoom wm-zoom-container">
+            @{
+                string[] Images = @Model.ProductImage.Split(',');
+            }
+            <div class="zoom-section">
 
-            <div class="myCloudZoom" id="pic-1">
-                <img src="@Images[0]" class="cloudzoom img img-responsive" data-cloudzoom="zoomImage:@Images[0]" />
+                <div class="zoom-small-image" id="pic-1">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[0]" alt='' title="@Model.ProductName" />
+                        </a>
+                </div>
+
             </div>
 
-        </div>
+            <ul class="zoom-desc preview-thumbnail nav nav-tabs">
 
-        <ul class="preview-thumbnail nav nav-tabs">
-
-            @try
-            {
-                @if (Images[0] != null)
+                @try
                 {
-                    <li class="active">
-                        <a href="@Model.ProductUrl" data-toggle="tab">
-                            <img src="@Images[0]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
-                        </a>
-                    </li>
-                }}
-            catch (Exception e)
-            { }
+                    @if (Images[0] != null)
+                    {
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                            </a>
+                        </li>
+                    }}
+                catch (Exception e)
+                { }
 
-            @try
-            {
-                @if (Images[1] != null)
+                @try
                 {
-                    <li>
-                        <a data-target="#pic-1" data-toggle="tab">
-                            <img src="@Images[1]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
-                        </a>
-                    </li>
-                }}
-            catch (Exception e)
-            { }
+                    @if (Images[1] != null)
+                    {
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                            </a>
+                        </li>
+                    }}
+                catch (Exception e)
+                { }
 
-            @try
-            {
-                @if (Images[2] != null)
+                @try
                 {
-                    <li>
-                        <a data-target="#pic-1" data-toggle="tab">
-                            <img src="@Images[2]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
-                        </a>
-                    </li>
-                }}
-            catch (Exception e)
-            { }
+                    @if (Images[2] != null)
+                    {
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[2]" alt='' title="@Model.ProductName"style="max-height:200px ; max-width:100px" />
+                            </a>
+                        </li>
+                    }}
+                catch (Exception e)
+                { }
 
 
-            @try
-            {
-                @if (Images[3] != null)
+                @try
                 {
-                    <li>
-                        <a data-target="#pic-1" data-toggle="tab">
-                            <img src="@Images[3]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
-                        </a>
-                    </li>
-                }}
-            catch (Exception e)
-            { }
+                    @if (Images[3] != null)
+                    {
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                            </a>
+                        </li>
+                    }}
+                catch (Exception e)
+                { }
 
 
-            @try
-            {
-                @if (Images[4] != null)
+                @try
                 {
-                    <li>
-                        <a data-target="#pic-1" data-toggle="tab">
-                            <img src="@Images[4]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
-                        </a>
-                    </li>
+                    @if (Images[4] != null)
+                    {
+                        <li>
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[4]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                            </a>
+                        </li>
+                    }
                 }
-            }
-            catch (Exception e)
-            { }
-        </ul>
-    </div>
+                catch (Exception e)
+                { }
+            </ul>
+        </div>
 
 
     @if (Model != null)
@@ -220,38 +226,25 @@
 
 @section Scripts{
 
-    <script type="text/javascript">
-        $(function () {
-            // Bind a click event to a Cloud Zoom instance.
-            $('#myCloudZoom').bind('click', function () {
-                // On click, get the Cloud Zoom object,
-                var cloudZoom = $(this).data('CloudZoom');
-                // Close the zoom window (from 2.1 rev 1211291557)
-                cloudZoom.closeZoom();
-                // and pass Cloud Zoom's image list to Fancy Box.
-                $.fancybox.open(cloudZoom.getGalleryList());
-                return false;
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        var oldWidth = $("#thumbnail img").width();
+        $("#thumbnail img").hover(function () {
+            var src = $(this).attr("src");
+            $(this).attr("src", $(this).attr("alt"));
+            $(this).animate({ width: "30%" }, 1000);
+            $(this).attr("alt", src);
+        }, function () {
+            $(this).animate({ width: oldWidth }, 1000);
+            var src = $(this).attr("src");
+            $(this).queue(function () {
+                $(this).attr("src", $(this).attr("alt"));
+                $(this).attr("alt", src);
+                $(this).dequeue();
             });
         });
-
-        </script>
-
-        <script>
-            $('.my-zoom').WMZoom({
-                config: {
-
-                stageW: 300,
-           stageH: 300,
-           inner: false,
-           position: 'right',
-
-           margin: 10
-
-       }
-});
-
-
-    </script>
+    });
+</script>
 
     <script>
 
