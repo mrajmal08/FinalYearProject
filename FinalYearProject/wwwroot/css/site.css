@@ -8,8 +8,8 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
     margin-top: 100px;
 }
 
@@ -31,6 +31,7 @@ body {
 }
 .nav > li > a > img {
     max-width: 100%;
+    max-height:150px;
 }
 /* QR code generator */
 #qrCode {
@@ -44,3 +45,39 @@ body {
         display: none;
     }
 }
+.Frontimg {
+    margin-left:15px;
+}
+.smallimg li{
+    max-height:200px;
+    max-width:100px;
+}
+.smallimg li img{
+    max-width: 100%;
+}
+.logo{
+    width:250px;
+    height: 135px;
+}
+.logo img{
+
+    max-width:100%;
+}
+
+
+
+.banner {
+    height:110px;
+}
+    .banner img {
+        height: 110px;
+    }
+.sign {
+    margin-left:12.5px;
+}
+    .sign img {
+        margin-left: 12.5px;
+    }
+    .abc img{
+        margin-left: 0px;
+    }

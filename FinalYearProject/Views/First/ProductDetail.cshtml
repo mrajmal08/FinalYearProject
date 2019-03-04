@@ -8,27 +8,27 @@
 
 @*<div class="container-fliud alert alert-success">*@
 
-<div class="wm-zoom-container alert alert-danger container-fluid" style="clear:both">
+<div class="wm-zoom-container alert alert-success container-fluid responc" style="clear:both">
 
 
 
 
-    <div class="zoom preview col-md-5 alert alert-success text-center">
+    <div class=" col-md-5 alert alert-success col-sm-5 col-xs-5">
 
             @{
                 string[] Images = @Model.ProductImage.Split(',');
             }
-            <div class="zoom-section">
+            <div class=" Frontimg text-center">
 
-                <div class="zoom-small-image" id="pic-1">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[0]" alt='' title="@Model.ProductName" />
+                <div id="pic-1">
+                    <a>
+                        <img src="@Images[0]" class="photo" title="@Model.ProductName" />
                         </a>
                 </div>
 
             </div>
 
-            <ul class="zoom-desc preview-thumbnail nav nav-tabs">
+            <ul class="zoom-desc preview-thumbnail nav nav-tabs smallimg">
 
                 @try
                 {
@@ -36,7 +36,7 @@
                     {
                         <li class="active">
                             <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                                <img src="@Images[0]" alt='' title="@Model.ProductName"  />
                             </a>
                         </li>
                     }}
@@ -47,9 +47,9 @@
                 {
                     @if (Images[1] != null)
                     {
-                        <li class="active">
+                        <li class="active text-center">
                             <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                                <img src="@Images[1]" alt='' title="@Model.ProductName"/>
                             </a>
                         </li>
                     }}
@@ -62,7 +62,7 @@
                     {
                         <li class="active">
                             <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[2]" alt='' title="@Model.ProductName"style="max-height:200px ; max-width:100px" />
+                                <img src="@Images[2]" alt='' title="@Model.ProductName"/>
                             </a>
                         </li>
                     }}
@@ -76,7 +76,7 @@
                     {
                         <li class="active">
                             <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-height:200px ; max-width:100px"/>
+                                <img src="@Images[3]" alt='' title="@Model.ProductName" />
                             </a>
                         </li>
                     }}
@@ -90,7 +90,7 @@
                     {
                         <li>
                             <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[4]" class="img img-responsive" style="max-height:200px ; max-width:100px" />
+                                <img src="@Images[4]" class="img img-responsive"/>
                             </a>
                         </li>
                     }
@@ -103,7 +103,7 @@
 
     @if (Model != null)
     {
-        <div class="col-md-7 alert alert-warning">
+        <div class="col-md-7 col-sm-7 col-xs-7 alert alert-success">
             <h3 class="product-title">@Model.ProductName</h3>
             <div>
                 <span class="sr-only">Four out of Five Stars</span>
@@ -117,10 +117,13 @@
                 <p class="product-description">@Model.ProductMetaDisc</p><br />
                 <h4 class="price"><strong>Price: </strong><span class="border-bottom-0">@Model.ProductPrice</span></h4><br />
                 <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
-                <div class="action">
+               <div class="action">
 
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+                 <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
+                 <button class="btn btn-lg " type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
+                                                                                               
+               </div>
+                
             </div>
         </div>}
 
@@ -156,7 +159,7 @@
     <div class="row text-success alter alert-success container-fluid">
         <h2 class="card-header">You Can Also Like</h2>
 
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
             <img src="~/images/download.jpg" alt="Card image">
 
             <div>
@@ -172,7 +175,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
             <img src="~/images/download.jpg" alt="Card image">
 
             <div>
@@ -188,7 +191,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
             <img src="~/images/download.jpg" alt="Card image">
 
             <div>
@@ -204,7 +207,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
             <img src="~/images/download.jpg" alt="Card image">
 
             <div>
@@ -226,23 +229,19 @@
 
 @section Scripts{
 
-<script type="text/javascript" language="javascript">
+<script>
+
     $(document).ready(function () {
-        var oldWidth = $("#thumbnail img").width();
-        $("#thumbnail img").hover(function () {
-            var src = $(this).attr("src");
-            $(this).attr("src", $(this).attr("alt"));
-            $(this).animate({ width: "30%" }, 1000);
-            $(this).attr("alt", src);
-        }, function () {
-            $(this).animate({ width: oldWidth }, 1000);
-            var src = $(this).attr("src");
-            $(this).queue(function () {
-                $(this).attr("src", $(this).attr("alt"));
-                $(this).attr("alt", src);
-                $(this).dequeue();
-            });
-        });
+        $('img')
+            .wrap('<span style="display:inline-block"></span>')
+            .css('display', 'block')
+            .parent()
+            .zoom();
+        $('.photo')
+            .wrap('<span style="display:inline-block"></span>')
+            .css('display', 'block')
+            .parent()
+            .zoom();
     });
 </script>
 
