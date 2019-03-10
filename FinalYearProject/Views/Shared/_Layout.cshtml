@@ -9,9 +9,12 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     </environment>
     <environment exclude="Development">
+
+
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
@@ -19,6 +22,9 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 
         <link rel="stylesheet" href="~/css/site.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </environment>
 </head>
 <body>
@@ -86,13 +92,100 @@
 
     <div class="container body-content">
         @*<div class="alert alert-info">
-                this is header
-            </div>*@
+            this is header
+        </div>*@
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2019 - FinalYearProject</p>
-        </footer>
+        
+            <div class="footer container text-center text-md-left">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong><u>Online Product Price Comparision</u></strong></h5><br />
+                        <p>Our business philosophy focuses on high quality products, great savings and easy shopping! 
+                        We aspire to create the ideal online shopping store environment for our customers. </p>
+                       
+
+                    </div>
+                  
+                    <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>About</strong></h5>
+
+                        <ul class="list-unstyled">
+                           
+                            <li>
+                                <p>
+                                    <a href="#!">About uS</a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <a href="#!">Policies</a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <a href="#!">Contact Details</a>
+                                </p>
+                            </li>
+                        </ul>
+
+                    </div>
+                   
+                    <div class="col-md-3 col-lg-3 mx-auto my-md-3 my-0 mt-3 mb-1">
+
+                        <!-- Contact details -->
+                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>Address</strong></h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>
+                                    <span class="glyphicon glyphicon-home">
+                                        Sialkot Pakistan
+                                    </span>                                </p>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-user">
+                                  ajmal@gmail.com
+                                </span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-phone">
+                                    123456789
+                                </span>
+                            </li>
+                           
+                        </ul>
+
+                    </div>
+                    
+                    <div class="col-md-3 col-lg-3 text-center mx-auto my-4">
+
+                        <!-- Social buttons -->
+                        <h5 class=" text-uppercase mb-4 alert alert-danger"><strong>Follow Us</strong></h5>
+
+
+                        <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                        <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                        <a href="https://accounts.google.com/signin" class="fa fa-google"></a>
+                        <a href="https://www.linkedin.com/uas/login" class="fa fa-linkedin"></a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+          
+        <a href="#" class="scrollToTop">&nbsp;</a>
     </div>
 
     <environment include="Development">
@@ -121,6 +214,8 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/lib/Zoomer/jquery.zoom.min.js"></script>
+
+
 
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>

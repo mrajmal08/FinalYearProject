@@ -33,6 +33,11 @@ body {
     max-width: 100%;
     max-height:150px;
 }
+.navbar{
+    max-height: 180px;
+    max-width: 100%;
+
+}
 /* QR code generator */
 #qrCode {
     margin: 15px;
@@ -57,7 +62,7 @@ body {
 }
 .logo{
     width:250px;
-    height: 135px;
+    height: 105px;
 }
 .logo img{
 
@@ -76,8 +81,85 @@ body {
     margin-left:12.5px;
 }
     .sign img {
-        margin-left: 12.5px;
+        margin-left: 9.5px;
     }
     .abc img{
         margin-left: 0px;
     }
+.footer {
+    /*position: fixed;*/
+    clear:both;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(88, 88, 88);
+    color: white;
+    text-align: center;
+}
+.fa {
+    padding: 15px;
+    font-size: 80px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 90%;
+}
+
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-google {
+    background-color:red;
+    color: white;
+}
+.fa-linkedin {
+    background: #3B5998;
+    color: white;
+}
+
+input[type=text] {
+    width: 280px;
+    height: 50px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+    /* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+        width: 100%;
+    }
+
+.alert {
+    padding: 4px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+}
+.CA {
+    background-color: black;
+    color: white;
+}
+.Ca {
+    margin-left:-20px;
+}
+.abcd {
+    
+
+    
+}

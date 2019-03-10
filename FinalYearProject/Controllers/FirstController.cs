@@ -19,6 +19,12 @@ namespace FinalYearProject.Controllers
 
         }
 
+        public IActionResult HomePage()
+        {
+            return View();
+        }
+
+
         public IActionResult ProductDetail(int id)
         {
 
