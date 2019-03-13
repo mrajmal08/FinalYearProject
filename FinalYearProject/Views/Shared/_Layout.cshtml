@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FinalYearProject</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap1.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/New css/stylesheet.css">
+
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -54,139 +62,215 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="navbar navbar-inverse navbar-fixed-top alert alert-info nav" >
+    @*<div class="navbar navbar-inverse navbar-fixed-top alert alert-info nav" >
 
-        <div class="col-md-3 col-sm-3 col-xs-3 logo">
+            <div class="col-md-3 col-sm-3 col-xs-3 logo">
 
-            <img src="~/images/OPPC.png"  />
-        </div>
+                <img src="~/images/OPPC.png"  />
+            </div>
 
-        <div class="col-md-6 col-sm-6 col-xs-6 banner">
-            <img src="~/images/WebHeaderBanners_Technology.png" class="img img-responsive "  />
-        </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 banner">
+                <img src="~/images/WebHeaderBanners_Technology.png" class="img img-responsive "  />
+            </div>
 
-        <div class="col-md-3 col-sm-3 col-xs-3">
-            <ul class="nav navbar-nav navbar-right sign">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <ul class="nav navbar-nav navbar-right sign">
 
-                <li>
-                    <a asp-area="Identity" asp-page="/Account/Login">
-                        <img src="~/images/wishlist-header-icon.png"  /><br />Wishlist
-                    </a>
-                </li>
+                    <li>
+                        <a asp-area="Identity" asp-page="/Account/Login">
+                            <img src="~/images/wishlist-header-icon.png"  /><br />Wishlist
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="/First/SignUp">
-                        <img src="~/images/sign-up-header-icon.png"  /><br />Sign Up
-                    </a>
-                </li>
+                    <li>
+                        <a href="/First/SignUp">
+                            <img src="~/images/sign-up-header-icon.png"  /><br />Sign Up
+                        </a>
+                    </li>
 
 
-                <li>
-                    <a href="/First/Login">
-                        <img src="~/images/sign-in-header-icon.png" class="abc" /><br />Login
-                    </a>
-                </li>
-            </ul>
+                    <li>
+                        <a href="/First/Login">
+                            <img src="~/images/sign-in-header-icon.png" class="abc" /><br />Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+
+    <div class="pageWrapper">
+        <div class="header-wrapper">
+            <div class="page-center">
+                <div class="header">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="/First/HomePage">
+                                <img src="~/images/logo/logo.png" />
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right-header">
+                        <div class="signin signin-lg show-only-lg header-right">
+                            <div class="signin-btn">
+                                <div class="wishlist-dropdown">
+                                    <img src="~/images/icons/wishlist-header-icon.png" class="top-signin-icon" />
+                                    <a href="#" class="header-account-link">Wishlist</a>
+                                </div>
+                                <div class="wishlist-dropdown">
+                                    <img src="~/images/icons/sign-in-header-icon.png" class="top-signin-icon" />
+                                    <a href="/First/Login" class="header-account-link">Sign In</a>
+                                </div>
+                                <div class="wishlist-dropdown">
+                                    <img src="~/images/icons/sign-up-header-icon.png" class="top-signin-icon" />
+                                    <a href="/First/SignUp" class="header-account-link">Sign Up</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-center">
+                            <ul>
+                                <li><a href="/First/HomePage">Home</a></li>
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container body-content">
+    @*<div class="container body-content">
         @*<div class="alert alert-info">
-            this is header
-        </div>*@
-        @RenderBody()
-        <hr />
-        
-            <div class="footer container text-center text-md-left">
+                this is header
+            </div>*@
+    @RenderBody()
+    <hr />
 
-                <!-- Grid row -->
-                <div class="row">
+    @*<div class="footer container text-center text-md-left">
 
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+            <!-- Grid row -->
+            <div class="row">
 
-                        <!-- Content -->
-                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong><u>Online Product Price Comparision</u></strong></h5><br />
-                        <p>Our business philosophy focuses on high quality products, great savings and easy shopping! 
-                        We aspire to create the ideal online shopping store environment for our customers. </p>
-                       
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 
-                    </div>
-                  
-                    <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong><u>Online Product Price Comparision</u></strong></h5><br />
+                    <p>
+                        Our business philosophy focuses on high quality products, great savings and easy shopping!
+                        We aspire to create the ideal online shopping store environment for our customers.
+                    </p>
 
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>About</strong></h5>
-
-                        <ul class="list-unstyled">
-                           
-                            <li>
-                                <p>
-                                    <a href="#!">About uS</a>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <a href="#!">Policies</a>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <a href="#!">Contact Details</a>
-                                </p>
-                            </li>
-                        </ul>
-
-                    </div>
-                   
-                    <div class="col-md-3 col-lg-3 mx-auto my-md-3 my-0 mt-3 mb-1">
-
-                        <!-- Contact details -->
-                        <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>Address</strong></h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <p>
-                                    <span class="glyphicon glyphicon-home">
-                                        Sialkot Pakistan
-                                    </span>                                </p>
-                            </li>
-                            <li>
-                                <span class="glyphicon glyphicon-user">
-                                  ajmal@gmail.com
-                                </span>
-                            </li>
-                            <li>
-                                <span class="glyphicon glyphicon-phone">
-                                    123456789
-                                </span>
-                            </li>
-                           
-                        </ul>
-
-                    </div>
-                    
-                    <div class="col-md-3 col-lg-3 text-center mx-auto my-4">
-
-                        <!-- Social buttons -->
-                        <h5 class=" text-uppercase mb-4 alert alert-danger"><strong>Follow Us</strong></h5>
-
-
-                        <a href="https://www.facebook.com" class="fa fa-facebook"></a>
-                        <a href="https://www.twitter.com" class="fa fa-twitter"></a>
-                        <a href="https://accounts.google.com/signin" class="fa fa-google"></a>
-                        <a href="https://www.linkedin.com/uas/login" class="fa fa-linkedin"></a>
-
-                    </div>
-                    <!-- Grid column -->
 
                 </div>
-                <!-- Grid row -->
+
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>About</strong></h5>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <p>
+                                <a href="#!">About uS</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">Policies</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">Contact Details</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3 col-lg-3 mx-auto my-md-3 my-0 mt-3 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 alert alert-danger"><strong>Address</strong></h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <span class="glyphicon glyphicon-home">
+                                    Sialkot Pakistan
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-user">
+                                ajmal@gmail.com
+                            </span>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-phone">
+                                123456789
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3 col-lg-3 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h5 class=" text-uppercase mb-4 alert alert-danger"><strong>Follow Us</strong></h5>
+
+
+                    <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                    <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                    <a href="https://accounts.google.com/signin" class="fa fa-google"></a>
+                    <a href="https://www.linkedin.com/uas/login" class="fa fa-linkedin"></a>
+
+                </div>
+                <!-- Grid column -->
 
             </div>
-          
-        <a href="#" class="scrollToTop">&nbsp;</a>
-    </div>
+            <!-- Grid row -->
+
+        </div>*@
+
+    @*<a href="#" class="scrollToTop">&nbsp;</a>
+        </div>*@
+    
+    <footer class="page-footer font-small unique-color-dark pt-4">
+
+<!-- Footer Elements -->
+<div class="container">
+
+   <!-- Call to action -->
+   <ul class="list-unstyled list-inline text-center py-2">
+       <li class="list-inline-item text-center">
+           <h5 class="mb-1">Register for free</h5>
+       </li>
+       <li class="list-inline-item">
+           <a href="/First/SignUp" class="btn btn-outline-white btn-rounded">Sign up!</a>
+       </li>
+   </ul>
+   <!-- Call to action -->
+
+</div>
+<!-- Footer Elements -->
+
+
+
+</footer>
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">
+© 2019 University Of Gujrat, Sialkot Campus
+<a href="/First/HomePage"> OPPC</a>
+</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -219,7 +303,7 @@
 
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-   
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

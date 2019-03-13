@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "SignUp";
 }
-<h2 class="alert alert-warning">Please Enter the details bellow</h2>
+<h2 class="alert alert-success text-center">Please Enter the details bellow</h2>
 @if (!String.IsNullOrEmpty(ViewBag.Message))
 {
 
@@ -11,8 +11,8 @@
 }
 
 
-<div class="row">
-    <div class="col-md-4">
+<div class="signup-con">
+    <div class="form-signup alert alert-success">
         <form asp-action="SignUp" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -44,7 +44,7 @@
                 <input asp-for="UserContact" class="form-control" placeholder="123456789"/>
                 <span asp-validation-for="UserContact" class="text-danger"></span>
             </div>
-           
+           <br /><br />
             <div class="form-group">
                 <input type="submit" value="Sign Up" class="btn btn-danger" />
                 <a href="/First/Login" class="btn btn-warning">Sign In</a>

@@ -7,11 +7,15 @@
 
 
 @*<div class="container-fliud alert alert-success">*@
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/First/HomePage">Home</a></li>
-    <li class="breadcrumb-item"><a href="/First/Catagory">Catagory</a></li>
-    <li class="breadcrumb-item active">Detail</li>
+
+<ol class="breadcrumb alert alert-success">
+    <li><a href="/First/HomePage">Home></a></li>
+    <li><a href="/First/CatagoryPage">CATAGORY></a></li>
+    <li><a href="/First/DetailPage">DETAIL></a></li>
+
+
 </ol>
+
 
 <div class="wm-zoom-container alert alert-success container-fluid responc" style="clear:both">
 
@@ -33,57 +37,43 @@
 
             </div>
 
-            <ul class="zoom-desc preview-thumbnail nav nav-tabs smallimg">
+            <ul class="row zoom-desc preview-thumbnail nav nav-tabs smallimg"style="max-width:100px">
 
                 @try
                 {
-                    @if (Images[0] != null)
+                @if (Images[0] != null)
                     {
-                        <li class="active">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[0]" alt='' title="@Model.ProductName"  />
-                            </a>
-                        </li>
+                <li class="active" style= "float:left">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%"/>
+                    </a>
+                </li>
                     }}
                 catch (Exception e)
                 { }
 
                 @try
                 {
-                    @if (Images[1] != null)
+                @if (Images[1] != null)
                     {
-                        <li class="active text-center">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[1]" alt='' title="@Model.ProductName"/>
-                            </a>
-                        </li>
+                <li class="active text-center"style=" float:left">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%"/>
+                    </a>
+                </li>
                     }}
                 catch (Exception e)
                 { }
 
                 @try
                 {
-                    @if (Images[2] != null)
+                @if (Images[2] != null)
                     {
-                        <li class="active">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[2]" alt='' title="@Model.ProductName"/>
-                            </a>
-                        </li>
-                    }}
-                catch (Exception e)
-                { }
-
-
-                @try
-                {
-                    @if (Images[3] != null)
-                    {
-                        <li class="active">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[3]" alt='' title="@Model.ProductName" />
-                            </a>
-                        </li>
+                <li class="active" style="float:left">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[2]" alt='' title="@Model.ProductName"style="max-width:100%" />
+                    </a>
+                </li>
                     }}
                 catch (Exception e)
                 { }
@@ -91,13 +81,27 @@
 
                 @try
                 {
-                    @if (Images[4] != null)
+                @if (Images[3] != null)
                     {
-                        <li>
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[4]" class="img img-responsive"/>
-                            </a>
-                        </li>
+                <li class="active" style="float:left">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-width:100%"/>
+                    </a>
+                </li>
+                    }}
+                catch (Exception e)
+                { }
+
+
+                @try
+                {
+                @if (Images[4] != null)
+                    {
+                <li class="active" style="float:left">
+                    <a data-target="#pic-1" data-toggle="tab">
+                        <img src="@Images[4]" class="img img-responsive"style="max-width:100%"  />
+                    </a>
+                </li>
                     }
                 }
                 catch (Exception e)
@@ -165,8 +169,7 @@
         <h2 class="card-header">You Can Also Like</h2>
 
         <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
-
+            <img src="~/images/iphone7.jpg" alt="Card image">
             <div>
                 <br />
                 <a href="#chapter4"><strong>@Model.ProductName</strong></a>
@@ -234,7 +237,7 @@
 
 @section Scripts{
 
-<script>
+@*<script>
 
     $(document).ready(function () {
         $('img')
@@ -248,7 +251,7 @@
             .parent()
             .zoom();
     });
-</script>
+</script>*@
 
     <script>
 

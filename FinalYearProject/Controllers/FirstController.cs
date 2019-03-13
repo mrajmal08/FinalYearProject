@@ -61,23 +61,32 @@ namespace FinalYearProject.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignUp(UserSystem U)
         {
-            var userWithSameEmail = ORM.UserSystem.Where(m => m.UserEmail == U.UserEmail).SingleOrDefault(); //checking if the emailid already exits for any user
+            //var userWithSameEmail = ORM.UserSystem.Where(m => m.UserEmail == U.UserEmail).FirstOrDefault(); //checking if the emailid already exits for any user
             if (ModelState.IsValid)
             {
-                if (userWithSameEmail == null)
+                //if (userWithSameEmail == null)
+                //{
+                try
                 {
                     ORM.UserSystem.Add(U);
                     ORM.SaveChanges();
                     ViewBag.Message = "Registration Done";
                     return RedirectToAction("ProductDetail");
-
-
                 }
-                else
+                catch (Exception ex)
                 {
-                    ViewBag.Message = "User with this Email Already Exist";
-                    return View("SignUp");
+
+                    
                 }
+
+                return View();
+
+                //}
+                //else
+                //{
+                //    ViewBag.Message = "User with this Email Already Exist";
+                //    return View("SignUp");
+                //}
             }
 
             else

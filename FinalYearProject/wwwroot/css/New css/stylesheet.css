@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+body {   
+    font-family: 'Poppins', sans-serif;
+   background-color: #f4f4f4;
+    font-size: 13px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+a{
+    text-decoration: none !important;
+}
+h1, h2 , h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+.pageWrapper{
+    width: 100%;
+    display: block;
+    clear: both;
+    padding: 0;
+}
+.header-wrapper{
+    background-color: #fff;
+    position: relative;
+}
+.page-center{
+    margin: 0 auto;
+    max-width: 1366px;
+    min-width: 1250px;
+    box-shadow: 0 -8px 35px hsla(0, 0%, 0%, 0.45);
+    display: flex;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1170px;
+}
+.header{
+    margin: 0 auto;
+    width: 1170px;
+    padding: 15px;
+}
+.logo {
+    float: left;
+    width: 20px;
+}
+.show-only-lg {
+    display: block;
+}
+.signin {
+    text-align: right;
+    border: 0 solid red;
+}
+
+.header-right {
+    float: right;
+    width: 30%;
+}
+.top-signin-icon{
+    top: 8px;
+    left: 50%;
+    padding-bottom: 5px;
+    margin-left: -13px;
+   
+}
+.header-account-link{
+    margin-left: -11px;
+    display: inline-block;
+    position: relative;
+    
+    
+}
+.signin .signin-btn>.wishlist-dropdown, .signin .signin-btn>.header-account-link {
+        width: 32%;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+}
+.wishlist-dropdown a{
+   color: #666;
+    font-size: 13px;
+    text-decoration: none;
+        width: 100%;
+    text-align: center;
+}
+.header-right{
+        padding-top: 8px;
+}
+.right-header{
+    width: 80%;
+    float: right;
+}
+
+img {
+    vertical-align: middle;
+}
+.signin .signin-btn a:hover {
+    color: red;
+    background: #fafafa;
+}
+.header-center{
+      width: 69%;
+    float: left;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block;
+    margin: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: transparent;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+ border-bottom: 1px solid red;
+  color: red;
+}
+
+#searchform{
+        padding: 10px 0;
+    display: flex;
+}
+.form-control{
+    width: 95%;
+    float: left;
+    height: 40px;
+    padding: 0 15px;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+        border: 1px solid #e2e2e2;
+}
+#searchsubmit{
+   width: 5%;
+    background-color: #fff;
+    border-radius: 0 3px 3px 0;
+    border-color: #e2e2e2;
+}
+#searchsubmit img{
+        max-width: 20px;
+}
+#searchsubmit:hover{
+    background-color: red;
+    border-color: red;
+}
+
+.cat-left{
+    
+}
+.cat-left h2{
+    background-color: black;
+    color: white;
+    padding: 15px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1005;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
+.cat-right{
+   
+    
+    
+}
+
+.nav-cat ul{
+    width: 100%;
+    display: block;
+    border: solid 1px #e2e2e2;
+    
+        
+}
+.nav-cat ul li{
+    float:none;
+    border-bottom: solid 1px #e2e2e2;
+}
+.nav-cat ul li a{
+    border: none;
+    text-align: left;
+    line-height: 50px;
+    color: #838383;
+    background-color: white;
+    text-transform: capitalize;
+    padding: 0 15px;   
+}
+.nav-cat ul li a:hover{
+    background: #3d3d3d;
+    text-decoration: none;
+    color: #fff;   
+}
+
+.pro-title{
+    color: #111;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: 700;
+    display: block;
+    float: left;
+    border-bottom: solid 3px red;
+    padding: 5px 20px 10px 0;
+    margin-bottom: -2px;
+}
+.title1{
+    display: block;
+    width: 100%;
+    float: left;
+    position: relative;
+    border-bottom: solid 1px #e5e5e5;
+    margin: 10px 0;
+/*        margin: 10px 104px 10px 112px;*/
+}
+.panel img{
+   width: 150px;
+       margin-left: 24px;
+    
+}
+.panel{
+/*    padding: 0 10px;*/
+      width: 220px;
+      border-radius: none;
+    border: 1px solid #e5e5e5;
+}
+.pad{
+    margin-right:35px;
+    
+}
+.panel h2 {
+    margin: 15px 0 6px;
+    font-size: 14px;
+    line-height: 20px;
+    height: 21px;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 400;
+    color: #000;
+    padding: 0 15px;
+}
+.panel .item-price {
+    display: block;
+    padding: 0 15px;
+    padding-bottom: 30px;
+}
+.panel .item-current-price {
+    margin: 0 5px 0 0;
+    font-weight: 700;
+    font-size: 15px;
+    color: red;
+}
+.panel .item-reg-price {
+    color: #222;
+}
+.text-about{
+    text-align: left;
+    
+    clear: both;
+}
+.text-box{
+
+    text-align: center;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,.11);
+    box-shadow: 1px 1px 4px rgba(0,0,0,.11);
+    padding: 30px;
+        margin-bottom: 5px;
+}
+strong {
+    font-weight: 700;
+    color: #333;
+}
+.text-about h1{
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin-top: 5px;
+    text-transform: none;
+    color: #333;
+}
+.text-about h2 {
+    font-size: 15px;
+    margin: 0 0 4px;
+    padding: 10px 0 3px;
+}
+.foot.con{
+    background-color: black;
+}
+.page-footer {
+    clear: both;
+    background-color: #1c2331 !important;
+    padding: 40px 0;
+}
+.page-footer h5{
+    color: white;
+    font-size: 15px;
+   
+}
+.page-footer ul{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 50px;
+        margin: 0;
+}
+.page-footer li{
+    float: none;
+}
+.list-inline-item {
+    display: inline-block;
+}
+.btn-outline-white {
+    border: 2px solid #fff!important;
+    background-color: transparent!important;
+    color: #fff!important;padding: .84rem 2.14rem;
+}
+.btn-rounded {
+    -webkit-border-radius: 10em;
+    border-radius: 10em;
+}
+.btn[class*=btn-outline-] {
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+}
+.footer-copyright {
+    overflow: hidden;
+    padding: 15px;
+    background-color: black;
+    color: rgba(255,255,255,.6);
+}

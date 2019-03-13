@@ -1,9 +1,7 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+﻿/*/*/
+
+* /*/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -23,143 +21,18 @@ body {
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }
+
 .preview-thumbnail .nav-tabs > li {
     float: left;
     margin-bottom: -1px;
     width: 100px;
     height: 200px;
 }
-.nav > li > a > img {
-    max-width: 100%;
-    max-height:150px;
-}
-.navbar{
-    max-height: 180px;
-    max-width: 100%;
 
-}
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.form-signup {
+    padding: 15px 100px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
-.Frontimg {
-    margin-left:15px;
-}
-.smallimg li{
-    max-height:200px;
-    max-width:100px;
-}
-.smallimg li img{
-    max-width: 100%;
-}
-.logo{
-    width:250px;
-    height: 105px;
-}
-.logo img{
-
-    max-width:100%;
-}
-
-
-
-.banner {
-    height:110px;
-}
-    .banner img {
-        height: 110px;
-    }
-.sign {
-    margin-left:12.5px;
-}
-    .sign img {
-        margin-left: 9.5px;
-    }
-    .abc img{
-        margin-left: 0px;
-    }
-.footer {
-    /*position: fixed;*/
-    clear:both;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(88, 88, 88);
-    color: white;
-    text-align: center;
-}
-.fa {
-    padding: 15px;
-    font-size: 80px;
-    width: 40px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 90%;
-}
-
-
-    /* Add a hover effect if you want */
-    .fa:hover {
-        opacity: 0.7;
-    }
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-.fa-google {
-    background-color:red;
-    color: white;
-}
-.fa-linkedin {
-    background: #3B5998;
-    color: white;
-}
-
-input[type=text] {
-    width: 280px;
-    height: 50px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-    /* When the input field gets focus, change its width to 100% */
-    input[type=text]:focus {
-        width: 100%;
-    }
-
-.alert {
-    padding: 4px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 0px;
-}
-.CA {
-    background-color: black;
-    color: white;
-}
-.Ca {
-    margin-left:-20px;
-}
-.abcd {
-    
-
-    
+.breadcrumb > li{
+    float:none;
 }

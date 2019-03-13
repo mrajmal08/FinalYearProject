@@ -5,46 +5,290 @@
 }
 
 
-    <form>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap1.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/New css/stylesheet.css">
+</head>
+
+
+
+<body>
+
+  
+    <div class="container">
+        <div class="searchbox">
+            <form id="searchform">
+                <input type="text" class="form-control" name="query" placeholder="Start here, shop anywhere" maxlength="200">
+                <button id="searchsubmit" class="btn btn-default" type="submit"><img src="~/images/icons/search-icon.png" ></button>
+            </form>
+        </div>
+    </div>
+    <section class="catergories-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="cat-left">
+                        <h2>Categories</h2>
+
+                        <div class="nav-cat">
+                            <ul>
+                                <li><a href="#"><span class="fa fa-women"></span>Mobiles</a></li>
+                                <li><a href="#">Tablets</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Others</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0px 0 0;padding-right: 13px;" class="col-lg-9">
+                    <div class="banner">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="first-slide" style="width:100%; height: 250px;" src="~/images/Banners/b1.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <h1>Best Price</h1>
+                                            <p>From All Over Pakistan</p>
+                                            <p><a class="btn btn-lg btn-primary" href="/First/SignUp" role="button">Sign up today</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item ">
+                                    <img class="first-slide" style="width:100%; height: 250px;" src="~/images/Banners/b2.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <h1>GET PRODUCTS</h1>
+                                            <p>Save Your Time With Us.</p>
+                                            <p><a class="btn btn-lg btn-primary" href="/First/SignUp" role="button">Sign up today</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="new-products">
+        <div class="container">
+            <div class="title1">
+                <div class="pro-title">
+                    <span>New Products</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-2 col-sm-2 pad">
+                    <div class="panel" style="background: #fff;">
+                        <div class="panel-body">
+                           <a href="/First/ProductDetail/1005">
+                            <img src="~/images/apple-iphone-7-black.jpg"></a>
+                        </div>
+                        <div class="panel-title text-center">
+                            <h2> Iphone 7 </h2>
+                        </div>
+                        <div class="panel-text text-center">
+                            <div class="item-price">
+                                <span class="item-current-price">Rs 1,499</span>
+                                <span class="item-reg-price">
+                                    <strike>Rs  1,999</strike>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-2 pad">
+                    <div class="panel" style="background: #fff;">
+                        <div class="panel-body">
+                            <img src="~/images/apple-iphone-7-black.jpg">
+                        </div>
+                        <div class="panel-title text-center">
+                            <h2> Iphone 7 </h2>
+                        </div>
+                        <div class="panel-text text-center">
+                            <div class="item-price">
+                                <span class="item-current-price">Rs 1,499</span>
+                                <span class="item-reg-price">
+                                    <strike>Rs  1,999</strike>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-2 pad">
+                    <div class="panel" style="background: #fff;">
+                        <div class="panel-body">
+                            <a href="/First/ProductDetail/1005">
+                                <img src="~/images/apple-iphone-7-black.jpg">
+                            </a>
+                        </div>
+                        <div class="panel-title text-center">
+                            <h2> Iphone 7 </h2>
+                        </div>
+                        <div class="panel-text text-center">
+                            <div class="item-price">
+                                <span class="item-current-price">Rs 1,499</span>
+                                <span class="item-reg-price">
+                                    <strike>Rs  1,999</strike>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-2 pad">
+                    <div class="panel" style="background: #fff;">
+                        <div class="panel-body">
+                            <a href="/First/ProductDetail/1005">
+                                <img src="~/images/apple-iphone-7-black.jpg">
+                            </a>
+                        </div>
+                        <div class="panel-title text-center">
+                            <h2> Iphone 7 </h2>
+                        </div>
+                        <div class="panel-text text-center">
+                            <div class="item-price">
+                                <span class="item-current-price">Rs 1,499</span>
+                                <span class="item-reg-price">
+                                    <strike>Rs  1,999</strike>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-2 pad">
+                    <div class="panel" style="background: #fff;">
+                        <div class="panel-body">
+                            <a href="/First/ProductDetail/1005">
+                                <img src="~/images/apple-iphone-7-black.jpg">
+                            </a>
+                        </div>
+                        <div class="panel-title text-center">
+                            <h2> Iphone 7 </h2>
+                        </div>
+                        <div class="panel-text text-center">
+                            <div class="item-price">
+                                <span class="item-current-price">Rs 1,499</span>
+                                <span class="item-reg-price">
+                                    <strike>Rs  1,999</strike>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="text-box">
+            <div class="text-about">
+                <h1 style="text-align: center;"><strong>Pakistan, Online Product Price Comparison</strong></h1></br>
+                <p>With e-commerce fast growing in Pakistan, there has been an increase in the number of online shopping stores. A large number of products including mobiles, laptops, clothes, computer accessories, electrical appliances, household products, cosmetics, plasmas, etc. are listed on online shopping stores and websites.</p>
+                <p><strong>Online Product Price Comparision</strong>, Pakistan&rsquo;s leading Price Comparison Website, takes online shopping to the next level. Customers can compare prices online for a wide range of products listed by different retailers. Using our comparison shopping engine, you can find the best value for money for the product of your choice.</p>
+                <p>By bringing a large number of retailers and merchants offering diverse products onto a single platform, OPPC is set to become the country&rsquo;s leading online shopping store, revolutionizing the Pakistani online shopping experience.</p>
+                <h2>Save Time &amp; Money without Compromising Quality</h2>
+                <p>Our business philosophy focuses on high quality products, great savings and easy shopping! We aspire to create the ideal online shopping store environment for our customers. You can compare prices online of the multiple options of the same product, and make the best purchasing decision: not only in terms of money, but also time and convenience without compromising on quality.</p>
+                <h2>24/7 Service</h2>
+                <p>OPPC provides round the clock service to its visitors. Unlike brick-and-mortar stores, our price comparison website enables buyers to compare prices online at any time of the day, or night. We are open for business 365 days a year.</p>
+                <h2>We DO NOT Buy/Sell Products</h2>
+                <p>OPPC is a platform for buyers to meet sellers, compare prices online and make effective buying decisions. OPPC&nbsp;<strong>does not sell&nbsp;</strong>any products. When you select a product listed on our &lsquo;price comparison website&rsquo;, you are redirected to the online store/retailer offering that product. We don&rsquo;t make price determinations, either. All prices, in PKR, are set by the retailers.</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form>
         <input type="text" name="search" placeholder="Search..">
     </form>
 
-<div class="alert alert-dismissable">
-    <div class="col-md-3 col-sm-3 col-xs-3">
-        <ul class="list-group Ca">
-            <li class="list-group-item CA">CATEGORIES</li>
-            <li class="list-group-item "><a href="#">Mobiles</a></li>
-            <li class="list-group-item "><a href="#">Laptops</a></li>
-
-        </ul>
-    </div>
-    <div class="col-md-6 col-xs-6 col-sm-6 abcd">
-
-        <div class="tab-slider-wrapper " id="slider-wrapper">
-            <ul class="nav nav-tabs " role="tablist" id="homepg-slider-tabs">
-                <li role="presentation" class=""><a href="#mobile" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Mobiles</a></li>
-                <li role="presentation" class=""><a href="#sales" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Sales &amp; Deals</a></li>
-                <li role="presentation" class=""><a href="#fashion" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Fashion &amp; Style</a></li>
-                <li role="presentation" class=""><a href="#events" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Events</a></li>
-                <li role="presentation" class="active"><a href="#lawns" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="true">Lawn</a></li>
-
-
-
+    <div class="alert alert-dismissable">
+        <div class="col-md-3 col-sm-3 col-xs-3" >
+            <ul class="list-group Ca">
+                <li class="list-group-item CA">CATEGORIES</li>
+                <li class="list-group-item "><a href="#">Mobiles</a></li>
+                <li class="list-group-item "><a href="#">Laptops</a></li>
 
             </ul>
-            
+        </div>
+        <div class="col-md-6 col-xs-6 col-sm-6 abcd">
+
+            <div class="tab-slider-wrapper " id="slider-wrapper">
+                <ul class="nav nav-tabs " role="tablist" id="homepg-slider-tabs">
+                    <li role="presentation" class=""><a href="#mobile" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Mobiles</a></li>
+                    <li role="presentation" class=""><a href="#sales" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Sales &amp; Deals</a></li>
+                    <li role="presentation" class=""><a href="#fashion" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Fashion &amp; Style</a></li>
+                    <li role="presentation" class=""><a href="#events" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Events</a></li>
+                    <li role="presentation" class="active"><a href="#lawns" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="true">Lawn</a></li>
+
+
+
+
+                </ul>
+
+            </div>
+
+
         </div>
 
 
-    </div>
-   
+
+        <div class="col-md-3 col-sm-3 col-xs-3">
 
 
-    <div class="col-md-3 col-sm-3 col-xs-3">
-
-
-    </div>
+        </div>
 
 
 
-</div>
+    </div>*@
