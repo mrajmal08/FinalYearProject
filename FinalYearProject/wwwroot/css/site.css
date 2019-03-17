@@ -36,3 +36,31 @@ for details on configuring this project to bundle and minify static web assets. 
 .breadcrumb > li{
     float:none;
 }
+
+.g-signin2 {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+.or {
+   margin-right:790px;
+
+}
+#login {
+    margin:16px;
+}
+.forget {
+    margin-left:470px;
+}
+.Signindiv {
+    padding: 80px;
+    margin-bottom: 50px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.data1{
+    display:none;
+}
+.breadcrumbb {
+    width:auto; 
+    height:100%;
+}

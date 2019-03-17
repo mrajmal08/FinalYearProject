@@ -9,7 +9,9 @@
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.3.1" />
     <PackageReference Include="BootstrapMvc.Mvc5" Version="2.2.0" />
+    <PackageReference Include="elmah.io" Version="3.3.55" />
     <PackageReference Include="jQuery" Version="3.3.1" />
+    <PackageReference Include="JSON" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.2" />
@@ -24,6 +26,16 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.7" PrivateAssets="All" />
     <PackageReference Include="MimeSharp" Version="1.0.0" />
+    <PackageReference Include="NuGet.VisualStudio" Version="4.9.4" />
+    <PackageReference Include="OzCode.Analyzers.AddTryCatchAnalyzer" Version="1.4.6337.20200">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OzCode.VisualStudioExtensionAnalyzers" Version="1.6.6344.22888">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Twia.ReSharper" Version="9.0.0" />
   </ItemGroup>
 
 </Project>

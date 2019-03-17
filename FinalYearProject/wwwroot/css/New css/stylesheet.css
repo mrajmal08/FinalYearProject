@@ -159,9 +159,6 @@ li a:hover {
     border-color: red;
 }
 
-.cat-left{
-    
-}
 .cat-left h2{
     background-color: black;
     color: white;
@@ -171,11 +168,6 @@ li a:hover {
     z-index: 1005;
     font-size: 14px;
     text-transform: uppercase;
-    
-}
-.cat-right{
-   
-    
     
 }
 

@@ -5,16 +5,106 @@
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {
     <h2>@ViewBag.Message</h2>
+
 }
 
-<h2 class="alert alert-success text-center">Please Enter email and Password first</h2>
+<head>
+    <title>Google Sign in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-<div class="container col-md-6 col-sm-6 col-xs-6">
+
+    <meta name="google-signin-client_id" content="825129552104-ehd03vuhacphu3j772g56l6t95tgmqnb.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <sccript src="script.js"></sccript>
 
 
-    <form id="login-form" method="POST">
+</head>
+
+<div>
+    <div class="g-signin2" data-onsuccess="onsignin"></div>
+    <div class="data1">
+        <p>Profile Details</p>
+        <img id="pic" class="img-circle" style=" width:100px; height:100px"/>
+        <p>Email Address</p>
+        <p id="Email" class="alert alert-danger"></p>
+        <button onclick="SignOut" class="btn btn-danger">Sign Out</button>
+
+    </div>
+    @*Sign in With Gmail login Sdk*@
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            $(".g-signin2").css("display", "none");
+            $(".data1").css("display", "block");
+            $("#pic").attr('src', profile.getImageUrl());
+            $("#email").text(profile.getEmail());
+
+        }
+
+
+    </script>
+
+    <script>
+        // initialize and setup facebook js sdk
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '161791954705248',
+                xfbml: true,
+                version: 'v3.2'
+            });
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                    document.getElementById('login').style.visibility = 'hidden';
+                } else if (response.status === 'not_authorized') {
+                    document.getElementById('status').innerHTML = 'We are not logged in.'
+                } else {
+                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+                }
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // login with facebook with extra permissions
+        function login() {
+            FB.login(function (response) {
+                if (response.status === 'connected') {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                    document.getElementById('login').style.visibility = 'hidden';
+                } else if (response.status === 'not_authorized') {
+                    document.getElementById('status').innerHTML = 'We are not logged in.'
+                } else {
+                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+                }
+            }, { scope: 'email' });
+        }
+
+        // getting basic user info
+        function getInfo() {
+            FB.api('/me', 'GET', { fields: 'first_name,last_name,name,id' }, function (response) {
+                document.getElementById('status').innerHTML = response.id;
+            });
+        }
+    </script>
+
+    @*<div id="status"></div>*@
+    <br />
+    <div class="text-right or">or</div>
+    <div class="col-md-4 col-sm-4 col-xs-4" style="margin-left:470px;">
+        <button onclick="login()" id="login">Sign in Facebook</button>
+    </div>
+    <div class="Signindiv">
+        <form id="login-form" method="POST">
             <input type="hidden" name="fkey" value="14cba75ac8885bd64a8004781b885b12ee15220f8b24c6b73309c519e1bd899f">
-            <div id="se-login-fields" class="alert alert-success">
+            <div id="se-login-fields" class="alert alert-success ">
                 <input type="hidden" name="ssrc" value="head">
 
 
@@ -32,154 +122,5 @@
 
 
         </form>
-
     </div>
-    @*<button onclick="getinfo()">Get info</button>
-    <button onclick="post">post</button>
-    <button onclick="login()" id="login">Login with Facebook</button>
-
-    <div id="status"></div>
-</div>
-
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '161791954705248',
-            autoLogAppEvents: true,
-            xfbml: true,
-            version: 'v3.2'
-        });
-        FB.GetLoginStatus(function (rsponse) {
-            if (response.status === 'connected') {
-                document.getElementById('status').innerHTML = 'We are Connected';
-
-                document.getElementById('login').style.visibility = 'hidden';
-            } else if (response.status === 'not_authorized') {
-                document.getElementById('status').innerHTML = 'We are not Logged in';
-            } else {
-                document.getElementById('status').innerHTML = 'We are not Logged into Facebook';
-            }
-        });
-    };
-
-    (function (d, s, d) {
-        var js, fjs = d.getElementByIdTagName(s)[0];
-        if (d.getElementById(Id)) { return; }
-        js = d.createElement(s); js.Id = Id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    function login() {
-        alert(123);
-        FB.login(function (rsponse) {
-            if (response.status === 'connected') {
-                document.getElementById('status').innerHTML = 'We are Connected';
-                document.getElementById('login').style.visibility = 'hidden';
-
-            } else if (response.status === 'not_authorized') {
-                document.getElementById('status').innerHTML = 'We are not Loggied in';
-            } else {
-                document.getElementById('status').innerHTML = 'We are not Loggied into Facebook';
-            }
-
-        }; { scope: 'email' });
-    }
-    function getinfo() {
-        FB.api('/me', 'GET', { fields: 'first_Name, Last_Name, Name, Id' }, function (response) {
-            document.getElementById('status').innerHTML = response.Id;
-        });
-    }
-</script>
-<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>*@
-
-
-
-
-@*<h1 class="alert alert-warning">Please Enter email and Password first</h1>
-    <hr />
-    <div class="row alert alert-info">
-        <div class="col-md-4">
-            <form asp-action="Login" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="form-group">
-                    <label asp-for="UserEmail" class="control-label"></label>
-                    <input asp-for="UserEmail" class="form-control" placeholder="Email" />
-                    <span asp-validation-for="UserEmail" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="UserPassword" class="control-label"></label>
-                    <input asp-for="UserPassword" class="form-control" type="password" id="password" name="password" placeholder="Password" />
-                    <span asp-validation-for="UserPassword" class="text-danger"></span>
-                </div>
-
-
-                <div class="form-group">
-                    Don't have an account
-                    <input type="submit" value="Login" class="btn btn-danger" />
-                    <a href="/First/SignUp" class="btn btn-warning">Register </a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        <a href=" /Student/AllStudents">Back to List</a>
-    </div>*@
-
-<script>
-    // initialize and setup facebook js sdk
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '161791954705248',
-            xfbml: true,
-            version: 'v3.2'
-        });
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                document.getElementById('status').innerHTML = 'We are connected.';
-                document.getElementById('login').style.visibility = 'hidden';
-            } else if (response.status === 'not_authorized') {
-                document.getElementById('status').innerHTML = 'We are not logged in.'
-            } else {
-                document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-            }
-        });
-    };
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    // login with facebook with extra permissions
-    function login() {
-        FB.login(function (response) {
-            if (response.status === 'connected') {
-                document.getElementById('status').innerHTML = 'We are connected.';
-                document.getElementById('login').style.visibility = 'hidden';
-            } else if (response.status === 'not_authorized') {
-                document.getElementById('status').innerHTML = 'We are not logged in.'
-            } else {
-                document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-            }
-        }, { scope: 'email' });
-    }
-
-    // getting basic user info
-    function getInfo() {
-        FB.api('/me', 'GET', { fields: 'first_name,last_name,name,id' }, function (response) {
-            document.getElementById('status').innerHTML = response.id;
-        });
-    }
-</script>
-
-<div id="status"></div>
-
-<div class="col-md-3 col-sm-3, col-xs-3 alert alert-success">
-    <button onclick="login()" id="login">Log into Facebook</button>
-    <button onclick="getInfo()">Get Info</button>
 </div>

@@ -5,24 +5,20 @@
 }
 @*<link href="~/css/ProductDetail.css" rel="stylesheet" />*@
 
-
-@*<div class="container-fliud alert alert-success">*@
-
-<ol class="breadcrumb alert alert-success">
-    <li><a href="/First/HomePage">Home></a></li>
-    <li><a href="/First/CatagoryPage">CATAGORY></a></li>
-    <li><a href="/First/DetailPage">DETAIL></a></li>
-
-
-</ol>
-
-
-<div class="wm-zoom-container alert alert-success container-fluid responc" style="clear:both">
+<div class="alert alert-success container-fluid">
+    <ul class="breadcrumbb container-fluid">
+        <li><a href="/First/HomePage">HOME</a></li>
+        <li><a href="/First/CatagoryPage">CATAGORY</a></li>
+        <li><a href="/First/DetailPage">DETAIL</a></li>
+    </ul>
+</div>
+<div class="container-fluid">
+    <div class=" alert alert-success container-fluid responc" style="clear:both">
 
 
 
 
-    <div class=" col-md-5 alert alert-success col-sm-5 col-xs-5">
+        <div class=" col-md-5 alert alert-success col-sm-5 col-xs-5">
 
             @{
                 string[] Images = @Model.ProductImage.Split(',');
@@ -32,62 +28,48 @@
                 <div id="pic-1">
                     <a>
                         <img src="@Images[0]" class="photo" title="@Model.ProductName" />
-                        </a>
+                    </a>
                 </div>
 
             </div>
 
-            <ul class="row zoom-desc preview-thumbnail nav nav-tabs smallimg"style="max-width:100px">
+            <ul class="row zoom-desc preview-thumbnail nav nav-tabs smallimg" style="max-width:100px">
 
                 @try
                 {
-                @if (Images[0] != null)
+                    @if (Images[0] != null)
                     {
-                <li class="active" style= "float:left">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%"/>
-                    </a>
-                </li>
+                        <li class="active" style="float:left">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                            </a>
+                        </li>
                     }}
                 catch (Exception e)
                 { }
 
                 @try
                 {
-                @if (Images[1] != null)
+                    @if (Images[1] != null)
                     {
-                <li class="active text-center"style=" float:left">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%"/>
-                    </a>
-                </li>
+                        <li class="active text-center" style=" float:left">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                            </a>
+                        </li>
                     }}
                 catch (Exception e)
                 { }
 
                 @try
                 {
-                @if (Images[2] != null)
+                    @if (Images[2] != null)
                     {
-                <li class="active" style="float:left">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[2]" alt='' title="@Model.ProductName"style="max-width:100%" />
-                    </a>
-                </li>
-                    }}
-                catch (Exception e)
-                { }
-
-
-                @try
-                {
-                @if (Images[3] != null)
-                    {
-                <li class="active" style="float:left">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-width:100%"/>
-                    </a>
-                </li>
+                        <li class="active" style="float:left">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[2]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                            </a>
+                        </li>
                     }}
                 catch (Exception e)
                 { }
@@ -95,13 +77,27 @@
 
                 @try
                 {
-                @if (Images[4] != null)
+                    @if (Images[3] != null)
                     {
-                <li class="active" style="float:left">
-                    <a data-target="#pic-1" data-toggle="tab">
-                        <img src="@Images[4]" class="img img-responsive"style="max-width:100%"  />
-                    </a>
-                </li>
+                        <li class="active" style="float:left">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                            </a>
+                        </li>
+                    }}
+                catch (Exception e)
+                { }
+
+
+                @try
+                {
+                    @if (Images[4] != null)
+                    {
+                        <li class="active" style="float:left">
+                            <a data-target="#pic-1" data-toggle="tab">
+                                <img src="@Images[4]" class="img img-responsive" style="max-width:100%" />
+                            </a>
+                        </li>
                     }
                 }
                 catch (Exception e)
@@ -110,130 +106,132 @@
         </div>
 
 
+        @if (Model != null)
+        {
+            <div class="col-md-7 col-sm-7 col-xs-7 alert alert-success">
+                <h3 class="product-title">@Model.ProductName</h3>
+                <div>
+                    <span class="sr-only">Four out of Five Stars</span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><br />
+                    <span class="label label-success">@Model.ProductViews</span>
+                    <span class="monospaced"> Write a Review</span><br /><br />
+                    <p class="product-description">@Model.ProductMetaDisc</p><br />
+                    <h4 class="price"><strong>Price: </strong><span class="border-bottom-0">@Model.ProductPrice</span></h4><br />
+                    <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
+                    <div class="action">
+
+                        <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
+                        <button class="btn btn-lg " type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
+
+                    </div>
+
+                </div>
+            </div>}
+
+    </div>
+
     @if (Model != null)
     {
-        <div class="col-md-7 col-sm-7 col-xs-7 alert alert-success">
-            <h3 class="product-title">@Model.ProductName</h3>
-            <div>
-                <span class="sr-only">Four out of Five Stars</span>
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><br />
-                <span class="label label-success">@Model.ProductViews</span>
-                <span class="monospaced"> Write a Review</span><br /><br />
-                <p class="product-description">@Model.ProductMetaDisc</p><br />
-                <h4 class="price"><strong>Price: </strong><span class="border-bottom-0">@Model.ProductPrice</span></h4><br />
-                <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
-               <div class="action">
-
-                 <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
-                 <button class="btn btn-lg " type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
-                                                                                               
-               </div>
-                
-            </div>
-        </div>}
-
-</div>
-
-@if (Model != null)
-{
-    <div class="row text-success alter alert-success container-fluid">
-        <h2 class="text-success">Related Website</h2>
-        <table class="table table-responsive">
-            <tr>
-                <th>Store</th>
-                <th>Price</th>
-                <th>Logo</th>
-                <th>Condition</th>
-            </tr>
-            <tbody>
+        <div class="container-fluid text-success alter alert-success">
+            <h2 class="text-success">Related Website</h2>
+            <table class="table table-responsive">
                 <tr>
-                    <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
-                    <td>@Model.ProductPrice <sup>15% off</sup></td>
-                    <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
-                    <td> @Model.ProductStatus</td>
+                    <th>Store</th>
+                    <th>Price</th>
+                    <th>Logo</th>
+                    <th>Condition</th>
                 </tr>
+                <tbody>
+                    <tr>
+                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                        <td>@Model.ProductPrice <sup>15% off</sup></td>
+                        <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
+                        <td> @Model.ProductStatus</td>
+                    </tr>
 
-            </tbody>
-        </table>
-    </div>
-}
-<br />
-@if (Model != null)
-{
-
-    <div class="row text-success alter alert-success container-fluid">
-        <h2 class="card-header">You Can Also Like</h2>
-
-        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="~/images/iphone7.jpg" alt="Card image">
-            <div>
-                <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-            </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
+                </tbody>
+            </table>
         </div>
+    }
+    <br />
+    @if (Model != null)
+    {
 
-        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+        <div class="container-fluid text-success alter alert-success">
+            <h2 class="card-header">You Can Also Like</h2>
 
-            <div>
+            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                <img src="~/images/iphone7.jpg" alt="Card image">
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
-        </div>
 
-        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                <img src="~/images/iphone7.jpg" alt="Card image">
 
-            <div>
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-            </div>
-        </div>
 
-        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="~/images/download.jpg" alt="Card image">
+            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                <img src="~/images/iphone7.jpg" alt="Card image">
 
-            <div>
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
                 <br />
-                <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
-            <br />
-            <div>
-                <span>@Model.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+
+            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                <img src="~/images/iphone7.jpg" alt="Card image">
+
+                <div>
+                    <br />
+                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
+                </div>
+                <br />
+                <div>
+                    <span>@Model.ProductPrice</span>
+                </div>    <br />
+                <div>
+                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
+                </div>
             </div>
+
         </div>
+    }
+</div><br /> <br /> <br />
 
-    </div>}<br /> <br /> <br />
-
-<div id="disqus_thread"></div>
+<div id="disqus_thread" class="container-fluid"></div>
 
 @section Scripts{
 

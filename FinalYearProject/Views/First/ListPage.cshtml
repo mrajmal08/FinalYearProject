@@ -1,0 +1,19 @@
+﻿@model IEnumerable<FinalYearProject.Models.Product>
+
+@{
+    ViewData["Title"] = "ListPage";
+}
+@foreach (Product P in Model)
+{
+<div class="col-md-4 col-sm-4 col-xs-4">
+    <div>
+        <img src="@P.ProductImage" />
+    </div>
+    <div class="alert alert-success">
+        
+    </div>
+    <div><span class="glyphicon glyphicon-user"></span>Name: @P.ProductName </div>
+    <div><span class="glyphicon glyphicon-plus"></span>Price: @P.ProductPrice </div>
+
+</div>
+}
