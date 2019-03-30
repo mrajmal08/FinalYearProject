@@ -3,11 +3,21 @@
 @{
     ViewData["Title"] = "ListPage";
 }
-@foreach (Product P in Model)
+@foreach(Product P in Model)
 {
 <div class="col-md-4 col-sm-4 col-xs-4">
     <div>
-        <img src="@P.ProductImage" />
+        @{ 
+            string finalimage = "";
+            if (P.ProductImage != null)
+            {
+                string[] Image = P.ProductImage.Split(',');
+                finalimage = Image[0];
+            }
+        }
+
+
+        <img src="@finalimage" />
     </div>
     <div class="alert alert-success">
         

@@ -12,6 +12,7 @@
     <PackageReference Include="elmah.io" Version="3.3.55" />
     <PackageReference Include="jQuery" Version="3.3.1" />
     <PackageReference Include="JSON" Version="1.0.1" />
+    <PackageReference Include="LinqToExcel" Version="1.11.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.2" />
@@ -36,6 +37,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Twia.ReSharper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Second\UploadExcel.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\WebData\ExcelFile\" />
   </ItemGroup>
 
 </Project>

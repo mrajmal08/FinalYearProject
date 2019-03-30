@@ -31,7 +31,7 @@ namespace FinalYearProject.Controllers
 
         public IActionResult ListPage(int Id)
         {
-            Product S = ORM.Product.Where(m => m.ProductId == Id).FirstOrDefault<Product>();
+            IList<Product> S = ORM.Product.Where(m => m.CategoryId == Id).ToList<Product>();
 
             return View(S);
 

@@ -35,7 +35,30 @@
 
             <ul class="row zoom-desc preview-thumbnail nav nav-tabs smallimg" style="max-width:100px">
 
-                @try
+
+                @{
+
+                    string[] PImages = null;
+                    if (Model.ProductImage != null)
+                    {
+                        PImages = Model.ProductImage.Split(',');
+                    }
+
+                }
+
+
+                @foreach (string p in PImages)
+                {
+                    <li class="active" style="float:left">
+                        <a data-target="#pic-1" data-toggle="tab">
+                            <img src="@p" alt='' title="@Model.ProductName" style="max-width:100%" />
+                        </a>
+                    </li>
+                }
+
+
+
+                @*@try
                 {
                     @if (Images[0] != null)
                     {
@@ -57,8 +80,8 @@
                                 <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%" />
                             </a>
                         </li>
-                    }}
-                catch (Exception e)
+                    }}*@
+                @*catch (Exception e)
                 { }
 
                 @try
@@ -76,8 +99,8 @@
 
 
                 @try
-                {
-                    @if (Images[3] != null)
+                {*@
+                    @*@if (Images[3] != null)
                     {
                         <li class="active" style="float:left">
                             <a data-target="#pic-1" data-toggle="tab">
@@ -96,12 +119,12 @@
                         <li class="active" style="float:left">
                             <a data-target="#pic-1" data-toggle="tab">
                                 <img src="@Images[4]" class="img img-responsive" style="max-width:100%" />
-                            </a>
-                        </li>
+                            </a>*@
+                        @*</li>
                     }
                 }
                 catch (Exception e)
-                { }
+                { }*@
             </ul>
         </div>
 
