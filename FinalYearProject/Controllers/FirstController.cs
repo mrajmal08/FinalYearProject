@@ -23,19 +23,40 @@ namespace FinalYearProject.Controllers
 
         }
 
+
+
+        [HttpGet]
         public IActionResult HomePage()
         {
-            return View();
+            IList<Product> SS = ORM.Product.ToList<Product>();
+            return View(SS);
+        }
+        [HttpPost]
+        public IActionResult HomePage(String SearchByProduct)
+        {
+            if (HttpContext.Session.GetString("LIUID") == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            IList<Product> Search = ORM.Product.Where(m => m.ProductName.Contains(SearchByProduct)).ToList<Product>();
+
+
+            return View(Search);
         }
 
+        //List Of Products
 
-        public IActionResult ListPage(int Id)
+        [HttpPost]
+        public IActionResult ListPage()
         {
-            IList<Product> S = ORM.Product.Where(m => m.CategoryId == Id).ToList<Product>();
+            IList<Product> S = ORM.Product.ToList<Product>();
 
             return View(S);
 
         }
+
+        //Detail of Products
 
         public IActionResult ProductDetail(int id)
         {
@@ -44,6 +65,8 @@ namespace FinalYearProject.Controllers
 
             return View(P);
         }
+
+        //Login Function
         [HttpGet]
         public IActionResult Login()
         {
@@ -64,6 +87,8 @@ namespace FinalYearProject.Controllers
 
         }
 
+
+        //Sign in Function 
         [HttpGet]
         public IActionResult SignUp()
         {

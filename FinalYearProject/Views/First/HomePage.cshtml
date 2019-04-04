@@ -1,4 +1,4 @@
-﻿@model FinalYearProject.Models.Category
+﻿@model FinalYearProject.Models.Product
 
 @{
     ViewData["Title"] = "HomePage";
@@ -28,9 +28,10 @@
   
     <div class="container">
         <div class="searchbox">
-            <form id="searchform">
-                <input type="text" class="form-control" name="query" placeholder="Start here, shop anywhere" maxlength="200">
-                <button id="searchsubmit" class="btn btn-default" type="submit"><img src="~/images/icons/search-icon.png" ></button>
+            <form id="searchform" action="/First/HomePage" method="post">
+                <input type="text" class="form-control" id="SearchByProduct" name="SearchByProduct" placeholder="Start here, shop anywhere" maxlength="200">
+                <button id="searchsubmit" class="btn btn-default" type="submit"><img src="~/images/icons/search-icon.png"></button>
+
             </form>
         </div>
     </div>
@@ -41,10 +42,87 @@
                     <div class="cat-left">
                         <h2>Categories</h2>
                         <div class="nav-cat">
-                            <ul>
-                                <li><a href="/first/ListPage?Id=105"><span class="fa fa-women"></span>Mobiles</a></li>
-                                <li><a href="#">Laptops</a></li>
-                                <li><a href="#">Tablets</a></li>
+                            <ul class="category_menu">
+                              
+                                
+                                <li>
+                                    <a href="#">
+                                        <span class="icone fa fa-women"></span>
+                                        <span class="cat_name">Mobiles</span>
+                                    </a>
+                                    <ul class="right_sliding">
+                                        <li>
+                                            <a href="#">Apple</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nokia</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Samsung</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Huawei</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Lenovo</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="icone fa fa-women"></span>
+                                        <span class="cat_name">Laptops</span>
+                                    </a>
+
+                                    <ul class="right_sliding">
+                                        <li>
+                                            <a href="#">Hp</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Lenovo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Apple</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Dell</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Nec</a>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                
+
+
+                                <li>
+                                    <a href="#">
+                                        <span class="icone fa fa-women"></span>
+                                        <span class="cat_name">Tablets</span>
+                                    </a>
+                                    <ul class="right_sliding">
+                                        <li>
+                                            <a href="#">Apple</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Samsung</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Huawei</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Lenovo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Asus</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
                                 <li><a href="#">Others</a></li>
                             </ul>
                         </div>

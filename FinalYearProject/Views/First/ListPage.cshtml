@@ -5,25 +5,25 @@
 }
 @foreach(Product P in Model)
 {
-<div class="col-md-4 col-sm-4 col-xs-4">
-    <div>
-        @{ 
-            string finalimage = "";
-            if (P.ProductImage != null)
-            {
-                string[] Image = P.ProductImage.Split(',');
-                finalimage = Image[0];
-            }
-        }
 
-
-        <img src="@finalimage" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="my-list">
+                <img src="@P.ProductImage" alt="dsadas" />
+                <h3>@P.ProductName</h3>
+                <span>@P.ProductPrice</span>
+                <span class="pull-right">SKU:100022</span>
+                <div class="offer">@P.DiscountedPrice</div>
+                <div class="detail">
+                    <p>@P.ProductMetaDisc</p>
+                    <img src="@P.ProductImage" alt="dsadas" />
+                    <a href="#" class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add To Cart</a>
+                    <a href="/First/ProductDetail" class="btn btn-info">Deatil</a>
+                </div>
+            </div>
+        </div>
+      
     </div>
-    <div class="alert alert-success">
-        
-    </div>
-    <div><span class="glyphicon glyphicon-user"></span>Name: @P.ProductName </div>
-    <div><span class="glyphicon glyphicon-plus"></span>Price: @P.ProductPrice </div>
-
 </div>
 }

@@ -72,7 +72,7 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductBrand)
                     .HasColumnName("Product_Brand")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.ProductCreatedDate)
                     .HasColumnName("Product_CreatedDate")
@@ -86,7 +86,7 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductMetaDisc)
                     .HasColumnName("Product_MetaDisc")
-                    .HasMaxLength(50);
+                    .HasMaxLength(2000);
 
                 entity.Property(e => e.ProductMetaTags)
                     .HasColumnName("Product_MetaTags")
@@ -94,7 +94,7 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductName)
                     .HasColumnName("Product_Name")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.ProductPrice)
                     .HasColumnName("Product_Price")
@@ -106,7 +106,7 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductStatus)
                     .HasColumnName("Product_Status")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.ProductUrl)
                     .HasColumnName("Product_Url")
@@ -114,11 +114,11 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductVariety)
                     .HasColumnName("Product_Variety")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.ProductViews)
                     .HasColumnName("Product_Views")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
             });
 
             modelBuilder.Entity<UserSystem>(entity =>

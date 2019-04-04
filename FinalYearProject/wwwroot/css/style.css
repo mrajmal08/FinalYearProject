@@ -102,3 +102,21 @@ header{
     width: 100%;
     float: left;
 }
+
+
+
+
+
+.right_sliding {
+    position: absolute;
+    left: auto;
+    right: -276px;
+    background: #ffffff;
+    width: 100px;
+    margin-left: 20px;
+    z-index: 243;
+    display: none !important;
+}
+.category_menu li:hover .right_sliding{
+    display: block !important;
+}

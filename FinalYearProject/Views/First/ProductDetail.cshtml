@@ -5,11 +5,11 @@
 }
 @*<link href="~/css/ProductDetail.css" rel="stylesheet" />*@
 
-<div class="alert alert-success container-fluid">
-    <ul class="breadcrumbb container-fluid">
-        <li><a href="/First/HomePage">HOME</a></li>
-        <li><a href="/First/CatagoryPage">CATAGORY</a></li>
-        <li><a href="/First/DetailPage">DETAIL</a></li>
+<div class="breadcrumb alert alert-success container-fluid">
+    <ul class="breadcrumb container-fluid">
+        <li class="breadcrumb-item"><a href="/First/HomePage">HOME</a></li>
+        <li class="breadcrumb-item"><a href="/First/CatagoryPage">CATAGORY</a></li>
+        <li class="breadcrumb-item"><a href="/First/DetailPage">DETAIL</a></li>
     </ul>
 </div>
 <div class="container-fluid">
@@ -18,7 +18,7 @@
 
 
 
-        <div class=" col-md-5 alert alert-success col-sm-5 col-xs-5">
+        <div class="col-md-5 alert alert-success col-sm-5 col-xs-5">
 
             @{
                 string[] Images = @Model.ProductImage.Split(',');
@@ -147,8 +147,8 @@
                     <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
                     <div class="action">
 
-                        <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
-                        <button class="btn btn-lg " type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
+                        <button class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
+                        <button class="btn btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
 
                     </div>
 

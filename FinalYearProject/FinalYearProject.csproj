@@ -10,6 +10,14 @@
     <PackageReference Include="bootstrap" Version="4.3.1" />
     <PackageReference Include="BootstrapMvc.Mvc5" Version="2.2.0" />
     <PackageReference Include="elmah.io" Version="3.3.55" />
+    <PackageReference Include="EPPlus" Version="4.5.3.1" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="EPPlus.DataExtractor" Version="2.0.2" />
+    <PackageReference Include="EPPlus.Extensions" Version="2.0.1" />
+    <PackageReference Include="EPPlus.Html" Version="0.2.0" />
+    <PackageReference Include="EPPlus.Utils" Version="1.0.5.8" />
+    <PackageReference Include="ExcelDataReader" Version="3.5.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.5.0" />
     <PackageReference Include="jQuery" Version="3.3.1" />
     <PackageReference Include="JSON" Version="1.0.1" />
     <PackageReference Include="LinqToExcel" Version="1.11.0" />
@@ -25,7 +33,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.8" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.7" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" PrivateAssets="All" />
     <PackageReference Include="MimeSharp" Version="1.0.0" />
     <PackageReference Include="NuGet.VisualStudio" Version="4.9.4" />
     <PackageReference Include="OzCode.Analyzers.AddTryCatchAnalyzer" Version="1.4.6337.20200">
@@ -37,12 +45,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Twia.ReSharper" Version="9.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Second\UploadExcel.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

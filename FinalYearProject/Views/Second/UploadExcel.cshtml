@@ -1,34 +1,24 @@
-﻿@model IEnumerable<FinalYearProject.Models.Product>
+﻿
 
 @{
-    ViewData["Title"] = "ListPage";
+    ViewData["Title"] = "UploadExcel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h4>Add Users via Excel</h4>
-<hr />
+<h2>Upload File</h2>
 
-@if (!string.IsNullOrEmpty(ViewBag.message))
+@using (Html.BeginForm("UploadExcel","Second", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<div class="alert alert-success">@ViewBag.message
-</div>
-        }
-   
-    <form asp-action="UploadExcel" asp-controller="Second" method="post" enctype="multipart/form-data">
-        <div class="form-horizontal">
+
+    <div class="form-group">
+        <input type="file" id="datafile" name="Upload"/>
+    </div>
+
+    <div class="form-group">
+
+        <input type="submit" name="btnuplaod" value="Upload" class="btn btn-default"/>
+    </div>
+}
 
 
 
-            <div class="form-group">
 
-                <div class="control-label col-md-2">Excel:</div>
-                <div class="col-md-10">
-                    <input type="file" id="FileUpload" name="FileUpload" class="" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
-
-                </div>
-            </div>
-        </div>
-    </form>
