@@ -58,6 +58,10 @@ namespace FinalYearProject.Models
                 entity.Property(e => e.CategoryType)
                     .HasColumnName("Category_Type")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.ParentCategory)
+                   .HasColumnName("Parent_Category")
+                   .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Product>(entity =>

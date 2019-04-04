@@ -12,5 +12,6 @@ namespace FinalYearProject.Models
         public string CategoryDisc { get; set; }
         public string CategoryStatus { get; set; }
         public DateTime? CategoryCreatedDate { get; set; }
+        public int ParentCategory { get; set; }
     }
 }
