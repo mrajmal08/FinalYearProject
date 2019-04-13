@@ -5,6 +5,8 @@
 }
 @*<link href="~/css/ProductDetail.css" rel="stylesheet" />*@
 
+<p>@ViewBag.LIUID</p>
+
 <div class="breadcrumb alert alert-success container-fluid">
     <ul class="breadcrumb container-fluid">
         <li class="breadcrumb-item"><a href="/First/HomePage">HOME</a></li>
@@ -51,7 +53,7 @@
                 {
                     <li class="active" style="float:left">
                         <a data-target="#pic-1" data-toggle="tab">
-                            <img src="@p" alt='' title="@Model.ProductName" style="max-width:100%" />
+                            <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%" />
                         </a>
                     </li>
                 }
@@ -147,7 +149,7 @@
                     <h4 class="Brand"><strong>Brand: </strong><span>@Model.ProductBrand</span></h4> <br />
                     <div class="action">
 
-                        <button class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</button>
+                        <a href="@Model.ProductUrl" class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</a>
                         <button class="btn btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
 
                     </div>
@@ -156,6 +158,10 @@
             </div>}
 
     </div>
+    @{ 
+        Website W = ViewBag.Web;
+
+    }
 
     @if (Model != null)
     {
@@ -166,14 +172,14 @@
                     <th>Store</th>
                     <th>Price</th>
                     <th>Logo</th>
-                    <th>Condition</th>
+                    <th>Store</th>
                 </tr>
                 <tbody>
                     <tr>
-                        <td><img src="~/images/download.jpg" width=" 100" class="img-fluid" alt="Responsive image" /></td>
+                        <td><h3> @W.WebsiteName </h3></td>
                         <td>@Model.ProductPrice <sup>15% off</sup></td>
-                        <td><img src="~/images/download.jpg" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
-                        <td> @Model.ProductStatus</td>
+                        <td><img src="@W.WebsiteLogo" class="rounded-circle" width=" 100" alt="Responsive image" /></td>
+                        <td><a href="@W.WebsiteUrl" target="_blank"> Visit Store  </a></td>
                     </tr>
 
                 </tbody>
@@ -184,73 +190,35 @@
     @if (Model != null)
     {
 
-        <div class="container-fluid text-success alter alert-success">
-            <h2 class="card-header">You Can Also Like</h2>
-
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-                <img src="~/images/iphone7.jpg" alt="Card image">
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
+    <div class="container-fluid text-success alter alert-success">
+        <h2 class="card-header">You Can Also Like</h2>
+        @if (ViewBag.Related != null)
+        {
+            foreach (var item in ViewBag.Related)
+            {
+                @if (item.ProductId == Model.ProductId)
+                {
+                    continue;
+                }
+        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+            <img src="@item.ProductImage" alt="Card image">
+            <div>
                 <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+                <a href="/First/ProductDetail?id=@item.ProductId"><strong>@item.ProductName</strong></a>
             </div>
-
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-                <img src="~/images/iphone7.jpg" alt="Card image">
-
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
-                <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
+            <br />
+            <div>
+                <span>@item.ProductPrice</span>
+            </div>    <br />
+            <div>
+                <a href="@item.ProductUrl" class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</a>
             </div>
-
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-                <img src="~/images/iphone7.jpg" alt="Card image">
-
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
-                <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-                <img src="~/images/iphone7.jpg" alt="Card image">
-
-                <div>
-                    <br />
-                    <a href="#chapter4"><strong>@Model.ProductName</strong></a>
-                </div>
-                <br />
-                <div>
-                    <span>@Model.ProductPrice</span>
-                </div>    <br />
-                <div>
-                    <button class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</button>
-                </div>
-            </div>
-
         </div>
+                }
+            }
+        
+    </div>
+        
     }
 </div><br /> <br /> <br />
 

@@ -13,6 +13,7 @@ using FinalYearProject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FinalYearProject.Models;
+using Sakura.AspNetCore.Mvc;
 
 namespace FinalYearProject
 {
@@ -47,8 +48,21 @@ namespace FinalYearProject
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            // services for paging the lsit view 
+
+            services.AddBootstrapPagerGenerator(options =>
+            {
+                // Use default pager options.
+                options.ConfigureDefault();
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -68,6 +82,7 @@ namespace FinalYearProject
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            
             app.UseAuthentication();
 
             app.UseMvc(routes =>

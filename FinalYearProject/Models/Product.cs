@@ -21,5 +21,7 @@ namespace FinalYearProject.Models
         public string ProductMetaTags { get; set; }
         public string ProductMetaDisc { get; set; }
         public int? CategoryId { get; set; }
+        public int? WebsiteId { get; set; }
+
     }
 }

@@ -1,5 +1,10 @@
 ﻿@model FinalYearProject.Models.UserSystem
 
+@{
+    ViewData["Title"] = "Login";
+    
+
+}
 
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))
@@ -21,11 +26,57 @@
 
 </head>
 
+<div class="container">
+    <div class="row">
+        <div class="main">
+            <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+                </div>
+            </div>
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or">or</span>
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <label for="inputUsernameEmail">Username or email</label>
+                    <input type="text" class="form-control" id="inputUsernameEmail">
+                </div>
+                <div class="form-group">
+                    <a class="pull-right" href="#">Forgot password?</a>
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+                <div class="checkbox pull-right">
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn btn-primary">
+                    Log In
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
 <div>
     <div class="g-signin2" data-onsuccess="onsignin"></div>
     <div class="data1">
         <p>Profile Details</p>
-        <img id="pic" class="img-circle" style=" width:100px; height:100px"/>
+        <img id="pic" class="img-circle" style=" width:100px; height:100px" />
         <p>Email Address</p>
         <p id="Email" class="alert alert-danger"></p>
         <button onclick="SignOut" class="btn btn-danger">Sign Out</button>
@@ -101,26 +152,6 @@
     <div class="col-md-4 col-sm-4 col-xs-4" style="margin-left:470px;">
         <button onclick="login()" id="login">Sign in Facebook</button>
     </div>
-    <div class="Signindiv">
-        <form id="login-form" method="POST">
-            <input type="hidden" name="fkey" value="14cba75ac8885bd64a8004781b885b12ee15220f8b24c6b73309c519e1bd899f">
-            <div id="se-login-fields" class="alert alert-success ">
-                <input type="hidden" name="ssrc" value="head">
 
-
-                <label for="email">Email</label><br>
-                <input type="email" name="email" id="email" placeholder="you@example.org"><br>
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="password" autocomplete="off" placeholder="********"><br>
-                <a id="forgot-pw" class="fr" href="/users/account-recovery">forgot?</a>
-                <br class="cbt">
-                <button class="s-btn s-btn__primary s-btn__md" id="submit-button" name="submit-button">
-                    Log in
-                </button>
-                Don't have an account? <a href="/First/SignUp">Sign up</a>
-            </div>
-
-
-        </form>
-    </div>
+    
 </div>

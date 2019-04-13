@@ -1,29 +1,34 @@
-﻿@model IEnumerable<FinalYearProject.Models.Product>
+﻿@*@model IEnumerable<FinalYearProject.Models.Product>*@
+@model Sakura.AspNetCore.IPagedList<FinalYearProject.Models.Product>
 
 @{
     ViewData["Title"] = "ListPage";
 }
-@foreach(Product P in Model)
-{
+
+<p>@ViewBag.LIUID</p>
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="my-list">
-                <img src="@P.ProductImage" alt="dsadas" />
-                <h3>@P.ProductName</h3>
-                <span>@P.ProductPrice</span>
-                <span class="pull-right">SKU:100022</span>
-                <div class="offer">@P.DiscountedPrice</div>
-                <div class="detail">
-                    <p>@P.ProductMetaDisc</p>
-                    <img src="@P.ProductImage" alt="dsadas" />
-                    <a href="#" class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add To Cart</a>
-                    <a href="/First/ProductDetail" class="btn btn-info">Deatil</a>
+        @foreach (Product P in Model)
+        {
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="my-list">
+                    <img src="@P.ProductImage" alt="dsadas" class="listt img-responsive" />
+                    <h3 class="titleName">@P.ProductName</h3>
+                    <span>@P.ProductPrice</span>
+                    <div class="offer">@P.DiscountedPrice</div>
+                    <div class="detail">
+                        <p>@P.ProductMetaDisc </p>
+                        <img src="@P.ProductImage" alt="dsadas" class="listt img-responsive" />
+                        <a href="@P.ProductUrl" class="btn btn-info">Add To Cart</a>
+                        <a href="/First/ProductDetail?id=@P.ProductId" class="btn btn-info">Deatil</a>
+                    </div>
                 </div>
             </div>
-        </div>
-      
+        }
     </div>
 </div>
-}
+
+<div class="row">
+    <pager current-page="@ViewBag.page" total-page="@ViewBag.pageSize" />
+</div>

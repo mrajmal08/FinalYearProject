@@ -68,9 +68,17 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
-/*css for list page*/
+/*/*css for list page*/
+
+/*
 img {
     max-width: 100%;
+    
+}
+.CusImg{
+
+    height:120px !important;
+    
 }
 
 * {
@@ -135,3 +143,8 @@ img {
 .my-list:hover .detail {
     top: 0;
 }
+
+.listt{
+
+    height:200px !important;
+}*/

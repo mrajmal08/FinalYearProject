@@ -70,6 +70,9 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.CategoryId).HasColumnName("Category_ID");
 
+                entity.Property(e => e.WebsiteId).HasColumnName("Website_ID");
+
+
                 entity.Property(e => e.DiscountedPrice)
                     .HasColumnName("Discounted_Price")
                     .HasColumnType("decimal(18, 0)");
@@ -188,15 +191,15 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.WebsiteLogo)
                     .HasColumnName("Website_Logo")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.WebsiteName)
                     .HasColumnName("Website_Name")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.WebsiteUrl)
                     .HasColumnName("Website_Url")
-                    .HasMaxLength(50);
+                    .HasMaxLength(500);
             });
         }
     }

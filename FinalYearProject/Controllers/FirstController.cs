@@ -7,6 +7,7 @@ using FinalYearProject.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Sakura.AspNetCore;
 
 namespace FinalYearProject.Controllers
 {
@@ -28,33 +29,64 @@ namespace FinalYearProject.Controllers
         [HttpGet]
         public IActionResult HomePage()
         {
+            ViewBag.Categories = ORM.Category.ToList<Category>();
             IList<Product> SS = ORM.Product.ToList<Product>();
             return View(SS);
         }
         [HttpPost]
-        public IActionResult HomePage(String SearchByProduct)
+        public IActionResult HomePage(String Search)
         {
-            if (HttpContext.Session.GetString("LIUID") == null)
-            {
-                return RedirectToAction("Login");
-            }
+            ViewBag.Categories = ORM.Category.ToList<Category>();
 
-            IList<Product> Search = ORM.Product.Where(m => m.ProductName.Contains(SearchByProduct)).ToList<Product>();
+            IList<Product> SearchData = ORM.Product.Where(m => m.ProductName.Contains(Search) || m.ProductMetaDisc.Contains(Search) ).ToList<Product>();
 
 
-            return View(Search);
+            return View(SearchData);
         }
 
         //List Of Products
 
-        [HttpPost]
-        public IActionResult ListPage()
+        public IActionResult ListPage(int c= 0, int p=0,int page=1)
+
         {
-            IList<Product> S = ORM.Product.ToList<Product>();
+           // var pageNumber = 1; 
+            var pageSize = 5;
+            
+        //    return View(pagedData);
 
-            return View(S);
 
+            IList<Product> S = null;
+
+            if(p!=0)
+            {
+                IList<int> allsubcategories = ORM.Category.Where(cc => cc.ParentCategory == c).Select(m => m.CategoryId).ToList<int>();
+                S = ORM.Product.Where(m => allsubcategories.Contains(m.CategoryId.Value)).ToList<Product>();
+                
+            }
+                
+            else if (c != 0)
+            {
+
+
+                S = ORM.Product.Where(pp => pp.CategoryId == c).ToList<Product>();
+
+
+            }
+            else
+            {
+                S = ORM.Product.ToList<Product>();
+            }
+            ViewBag.page = page;
+            ViewBag.pageSize = pageSize;
+            if (Request.Cookies["LIUID"] != null)
+            {
+                ViewBag.LIUID = Request.Cookies["LIUID"].ToString();
+            }
+            var pagedData = S.ToPagedList(pageSize, page);
+            return View(pagedData);
         }
+
+
 
         //Detail of Products
 
@@ -62,7 +94,20 @@ namespace FinalYearProject.Controllers
         {
 
             Product P = ORM.Product.Where(m => m.ProductId == id).FirstOrDefault<Product>();
+            if (P != null && P.CategoryId.HasValue)
+            {
+                ViewBag.Related = ORM.Product.Where(C => C.CategoryId == P.CategoryId).Take(10).ToList();
+                
+            }
+            if(P!= null && P.WebsiteId.HasValue)
+            {
+                ViewBag.Web = ORM.Website.Where(C => C.WebsiteId == P.WebsiteId).FirstOrDefault();
 
+
+            }
+            if (Request.Cookies["LIUID"] != null) { 
+            ViewBag.LIUID = Request.Cookies["LIUID"].ToString();
+            }
             return View(P);
         }
 
@@ -83,7 +128,9 @@ namespace FinalYearProject.Controllers
                 return View();
             }
             HttpContext.Session.SetString("LIUID", LU.Id.ToString());
-            return RedirectToAction("ProductDetail");
+            Response.Cookies.Append("LIUID", DateTime.Now.ToString());
+
+            return RedirectToAction("First","HomePage");
 
         }
 
@@ -153,6 +200,13 @@ namespace FinalYearProject.Controllers
                     return View("SignUp");
                 }
         }
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Login");
+        }
+
 
 
     }
