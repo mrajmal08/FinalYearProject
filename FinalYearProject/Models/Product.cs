@@ -7,11 +7,11 @@ namespace FinalYearProject.Models
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public decimal? ProductPrice { get; set; }
+        public string ProductPrice { get; set; }
         public string ProductVariety { get; set; }
         public string ProductImage { get; set; }
         public bool? ProductDeals { get; set; }
-        public decimal? DiscountedPrice { get; set; }
+        public string DiscountedPrice { get; set; }
         public string ProductRating { get; set; }
         public string ProductUrl { get; set; }
         public string ProductBrand { get; set; }

@@ -1,0 +1,47 @@
+﻿@model FinalYearProject.Models.Contact
+@{
+    ViewData["Title"] = "ContactUS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--==========================
+     Contact Section
+   ============================-->
+<section class="get-in-touch">
+    <h1 class="title">Get in touch</h1>
+
+
+    <form class="contact-form row" action="/Second/ContactUs" method="post">
+        <div class="form-field col x-50">
+            <label class="label" for="name">Name</label>
+
+            <input id="name" name="ContactName" class="input-text js-input" type="text" required>
+        </div>
+        <div class="form-field col x-50">
+            <label class="label" for="email">E-mail</label>
+
+            <input id="email" name="ContactEmail" class="input-text js-input" type="email" required>
+        </div>
+        <div class="form-field col x-100">
+            <label class="label mx-auto mb-5" for="message">Message</label>
+            <textarea id="message" name="ContactMsg" class="input-textarea js-input" type="text" rows="5" required></textarea>
+
+
+        </div>
+        <div class="form-field col x-100 align-center">
+            <input class="submit-btn" type="submit" value="Submit">
+        </div>
+    </form>
+</section>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<script>
+    $( '.js-input' ).keyup(function() {
+    if( $(this).val() ) {
+    $(this).addClass('not-empty');
+    } else {
+    $(this).removeClass('not-empty');
+    }
+    });
+
+</script>

@@ -56,6 +56,13 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\WebData\ExcelFile\" />
+    <Folder Include="wwwroot\WebData\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\_LayoutForuploadFile.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

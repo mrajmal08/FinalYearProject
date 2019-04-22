@@ -116,6 +116,7 @@ header{
     margin-left: 20px;
     z-index: 243;
     display: none !important;
+    margin-top: -50px;
 }
 .category_menu li:hover .right_sliding{
     display: block !important;

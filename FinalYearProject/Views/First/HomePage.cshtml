@@ -32,7 +32,7 @@
                 <input type="text" class="form-control" id="Search" name="Search" placeholder="Start here, shop anywhere" maxlength="200">
                 <button id="searchsubmit" class="btn btn-default" type="submit"><img src="~/images/icons/search-icon.png"></button>
 
-            </form>
+            </form><br />
         </div>
     </div>
     <section class="catergories-box">
@@ -79,38 +79,8 @@
                                 </li>
                                     }
                                 }
-                                        @*<li>
-                                            <a href="#">
-                                                <span class="icone fa fa-women"></span>
-                                                <span class="cat_name">Mobiles</span>
-                                            </a>
-                                            <ul class="right_sliding">
-                                                <li>
-                                                    <a href="/First/ListPage?c=1">Apple</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Nokia</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Samsung</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Huawei</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Lenovo</a>
-                                                </li>
-
-                                            </ul>
-                                        </li>*@
-
-
-
-
-
-
-
-                                    </ul>
+                          
+                             </ul>
                         </div>
                     </div>
                 </div>
@@ -155,37 +125,7 @@
             </div>
         </div>
 
-        @*<div class="container">
-            <div class="row">
-                @foreach (Product P in Model)
-                {
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <div class="panel" style="background: #fff;">
-                            <div class="panel-body">
-                                <a href="/First/ListPage">
-                                    <img class="img-responsive CusImg " src="@P.ProductImage">
-                                </a>
-                            </div>
-                            <div class="panel-title text-center">
-                                <h2> @P.ProductName </h2>
-                            </div>
-                            <div class="panel-text text-center">
-                                <div class="item-price">
-                                    <span class="item-current-price">@P.ProductPrice</span>
-                                    <span class="item-reg-price">
-                                        <strike>@P.DiscountedPrice</strike>
-                                    </span>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                }
-            </div>
-        </div>*@
-
+  
         <div class="container">
             <div class="row">
                 @foreach (Product P in Model)
@@ -234,72 +174,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<form>
-        <input type="text" name="search" placeholder="Search..">
-    </form>
-
-    <div class="alert alert-dismissable">
-        <div class="col-md-3 col-sm-3 col-xs-3" >
-            <ul class="list-group Ca">
-                <li class="list-group-item CA">CATEGORIES</li>
-                <li class="list-group-item "><a href="#">Mobiles</a></li>
-                <li class="list-group-item "><a href="#">Laptops</a></li>
-
-            </ul>
-        </div>
-        <div class="col-md-6 col-xs-6 col-sm-6 abcd">
-
-            <div class="tab-slider-wrapper " id="slider-wrapper">
-                <ul class="nav nav-tabs " role="tablist" id="homepg-slider-tabs">
-                    <li role="presentation" class=""><a href="#mobile" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Mobiles</a></li>
-                    <li role="presentation" class=""><a href="#sales" aria-controls="home" role="tablist" data-toggle="tab" aria-expanded="false">Sales &amp; Deals</a></li>
-                    <li role="presentation" class=""><a href="#fashion" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Fashion &amp; Style</a></li>
-                    <li role="presentation" class=""><a href="#events" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="false">Events</a></li>
-                    <li role="presentation" class="active"><a href="#lawns" aria-controls="profile" role="tablist" data-toggle="tab" aria-expanded="true">Lawn</a></li>
-
-
-
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="col-md-3 col-sm-3 col-xs-3">
-
-
-        </div>
-
-
-
-    </div>*@

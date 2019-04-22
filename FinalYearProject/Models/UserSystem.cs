@@ -19,5 +19,7 @@ namespace FinalYearProject.Models
         public string UserStatus { get; set; }
         public string UserContact { get; set; }
         public DateTime? CreatedDate { get; set; }
+        public string FaceBookID { get; set; }
+
     }
 }

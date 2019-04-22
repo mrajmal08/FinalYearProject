@@ -1,7 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -15,15 +12,13 @@
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="~/css/New css/stylesheet.css">
 
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
 
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+     
     </environment>
     <environment exclude="Development">
 
@@ -43,11 +38,11 @@
 <body>
 
 
-
+  
 
     <partial name="_CookieConsentPartial" />
 
-
+  
 
     <div class="pageWrapper">
         <div class="header-wrapper">
@@ -65,53 +60,17 @@
                         <div class="signin signin-lg show-only-lg header-right">
                             <div class="signin-btn">
                                 <div class="wishlist-dropdown">
-                                    <a href="#">
-
-                                        @if (string.IsNullOrEmpty(ViewBag.AddToWishList))
-                                        {
-                                            <img src="~/images/icons/wishlist-header-icon.png" class="top-signin-icon" />
-                                        }
-                                        else
-                                        {
-                                            <img src="~/images/icons/wishlist-header-iconRED.png" class="top-signin-icon" />
-                                        }
-                                    </a>
-
+                                    <img src="~/images/icons/wishlist-header-icon.png" class="top-signin-icon" />
                                     <a href="#" class="header-account-link">Wishlist</a>
                                 </div>
-
-                                @if (Context.Session.GetString("LIUID") == null)
-                                {
-
-
-                                    <div class="wishlist-dropdown">
-                                        <a href="/First/Login">
-                                            <img src="~/images/icons/sign-in-header-icon.png" class="top-signin-icon" />
-                                        </a>
-                                        <a href="/First/Login" class="header-account-link">Sign In</a>
-                                    </div>
-                                    <div class="wishlist-dropdown">
-                                        <a href="/First/SignUp">
-                                            <img src="~/images/icons/sign-up-header-icon.png" class="top-signin-icon" />
-                                        </a>
-                                        <a href="/First/SignUp" class="header-account-link">Sign Up</a>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <ul class="btn-group">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/First/UserProfile"><span class="glyphicon glyphicon-user"></span>User Profile</a></li>
-                                                <li><a href="/First/LogOut"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-
-                                }
-
+                                <div class="wishlist-dropdown">
+                                    <img src="~/images/icons/sign-in-header-icon.png" class="top-signin-icon" />
+                                    <a href="/First/Login" class="header-account-link">Sign In</a>
+                                </div>
+                                <div class="wishlist-dropdown">
+                                    <img src="~/images/icons/sign-up-header-icon.png" class="top-signin-icon" />
+                                    <a href="/First/SignUp" class="header-account-link">Sign Up</a>
+                                </div>
                             </div>
                         </div>
                         <div class="header-center">
@@ -129,51 +88,33 @@
         </div>
     </div>
 
-
+    
     @RenderBody()
     <hr />
 
+  
+    
+    <footer>
 
+<!-- Footer Elements -->
 
-    <footer class="page-footer font-small unique-color-dark pt-4">
-
-        <!-- Footer Elements -->
-        <div class="container">
-
-            <!-- Call to action -->
-            <ul class="list-unstyled list-inline text-center py-2">
-                <li class="list-inline-item text-center">
-                    <h5 class="mb-1">Register for free</h5>
-                </li>
-                <li class="list-inline-item">
-                    <a href="/First/SignUp" class="btn btn-outline-white btn-rounded">Sign up!</a>
-                </li>
-            </ul>
-            <!-- Call to action -->
-
-        </div>
-        <!-- Footer Elements -->
+<!-- Footer Elements -->
 
 
 
-    </footer>
+</footer>
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        © 2019 University Of Gujrat, Sialkot Campus
-        <a href="/First/HomePage"> OPPC</a>
-    </div>
+<!-- Copyright -->
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 
 
-        <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-        <script src="~/js/site.js" asp-append-version="true"></script>
-
-    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+</environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
@@ -181,7 +122,7 @@
                 crossorigin="anonymous"
                 integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
 
-
+           
 
         </script>
 
@@ -200,15 +141,5 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
-
-
-
-
-
-
-
-
 </body>
 </html>
-
-

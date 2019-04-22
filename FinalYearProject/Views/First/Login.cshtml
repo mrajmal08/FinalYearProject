@@ -2,7 +2,8 @@
 
 @{
     ViewData["Title"] = "Login";
-    
+   
+
 
 }
 
@@ -26,62 +27,126 @@
 
 </head>
 
+
+
 <div class="container">
-    <div class="row">
-        <div class="main">
-            <h3>Please Log In, or <a href="#">Sign Up</a></h3>
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
-                </div>
-            </div>
-            <div class="login-or">
-                <hr class="hr-or">
-                <span class="span-or">or</span>
-            </div>
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form role="form">
-                <div class="form-group">
-                    <label for="inputUsernameEmail">Username or email</label>
-                    <input type="text" class="form-control" id="inputUsernameEmail">
-                </div>
-                <div class="form-group">
-                    <a class="pull-right" href="#">Forgot password?</a>
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword">
-                </div>
-                <div class="checkbox pull-right">
-                    <label>
-                        <input type="checkbox">
-                        Remember me
-                    </label>
-                </div>
-                <button type="submit" class="btn btn btn-primary">
-                    Log In
-                </button>
+                <fieldset>
+                    <h2>Please Sign In</h2><br /><br />
+
+                    <div class="row">
+
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <button type="button" id="btn-fblogin" onclick="login()" class="btn btn-lg btn-primary btn-block">Login with Facebook</button>
+                        </div>
+                       
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <button type="button" data-onsuccess="onsignin" class=" btn btn-lg btn-danger btn-block">Login With Gmail</button>
+                        </div>
+                    </div><br />
+
+
+                    <hr class="colorgraph">
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address"><br /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password"><br /><br />
+                    </div>
+                    <span class="button-checkbox">
+                        <button type="button" class="btn" data-color="info">Remember Me</button>
+                        <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+                        <a href="" class="btn btn-link pull-right">Forgot Password?</a>
+                    </span>
+                    <hr class="colorgraph"><br />
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="/First/SignUp" class="btn btn-lg btn-primary btn-block">Register</a>
+                        </div>
+                    </div>
+                </fieldset>
             </form>
-
         </div>
-
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('.button-checkbox').each(function () {
+            var $widget = $(this),
+                $button = $widget.find('button'),
+                $checkbox = $widget.find('input:checkbox'),
+                color = $button.data('color'),
+                settings = {
+                    on: {
+                        icon: 'glyphicon glyphicon-check'
+                    },
+                    off: {
+                        icon: 'glyphicon glyphicon-unchecked'
+                    }
+                };
 
+            $button.on('click', function () {
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+                $checkbox.triggerHandler('change');
+                updateDisplay();
+            });
 
+            $checkbox.on('change', function () {
+                updateDisplay();
+            });
+
+            function updateDisplay() {
+                var isChecked = $checkbox.is(':checked');
+                // Set the button's state
+                $button.data('state', (isChecked) ? "on" : "off");
+
+                // Set the button's icon
+                $button.find('.state-icon')
+                    .removeClass()
+                    .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                // Update the button's color
+                if (isChecked) {
+                    $button
+                        .removeClass('btn-default')
+                        .addClass('btn-' + color + ' active');
+                }
+                else {
+                    $button
+                        .removeClass('btn-' + color + ' active')
+                        .addClass('btn-default');
+                }
+            }
+            function init() {
+                updateDisplay();
+                // Inject the icon if applicable
+                if ($button.find('.state-icon').length == 0) {
+                    $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+                }
+            }
+            init();
+        });
+    });
+
+</script>
 
 
 <div>
-    <div class="g-signin2" data-onsuccess="onsignin"></div>
-    <div class="data1">
+    @*<div class="g-signin2" data-onsuccess="onsignin"></div>*@
+    @*<div class="data1">
         <p>Profile Details</p>
         <img id="pic" class="img-circle" style=" width:100px; height:100px" />
         <p>Email Address</p>
         <p id="Email" class="alert alert-danger"></p>
         <button onclick="SignOut" class="btn btn-danger">Sign Out</button>
 
-    </div>
+    </div>*@
     @*Sign in With Gmail login Sdk*@
 
     <script>
@@ -107,6 +172,7 @@
             });
             FB.getLoginStatus(function (response) {
                 if (response.status === 'connected') {
+                    getFbUserData();
                     document.getElementById('status').innerHTML = 'We are connected.';
                     document.getElementById('login').style.visibility = 'hidden';
                 } else if (response.status === 'not_authorized') {
@@ -128,7 +194,9 @@
         function login() {
             FB.login(function (response) {
                 if (response.status === 'connected') {
+                    getFbUserData();
                     document.getElementById('status').innerHTML = 'We are connected.';
+
                     document.getElementById('login').style.visibility = 'hidden';
                 } else if (response.status === 'not_authorized') {
                     document.getElementById('status').innerHTML = 'We are not logged in.'
@@ -146,12 +214,44 @@
         }
     </script>
 
-    @*<div id="status"></div>*@
+    @*<div id="status"></div>
     <br />
     <div class="text-right or">or</div>
+
     <div class="col-md-4 col-sm-4 col-xs-4" style="margin-left:470px;">
         <button onclick="login()" id="login">Sign in Facebook</button>
-    </div>
+    </div>*@
 
     
 </div>
+
+<script>
+
+           function getFbUserData() {
+            FB.api('/me', { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' },               
+                function (response) {
+                    //console.log(response);
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CheckIfAlreadyExist","Second")',
+                        data: {                           
+                            FaceBookID: response.id,
+                            FirstName: response.first_name,
+                            LastName: response.last_name,
+                            Email: response.email,
+                            ProfilePicture: response.picture.data.url,
+                        },
+                        dataType: 'json',
+                        success: function (data) {                           
+                            if (data) {
+                                window.location ='/first/homepage';
+                            }
+                            else {
+                                alert("User Does not Exist");
+                            }
+                        }
+                    });
+                });
+        }
+
+</script>

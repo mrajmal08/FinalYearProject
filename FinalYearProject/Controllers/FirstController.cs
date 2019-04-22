@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -50,7 +51,7 @@ namespace FinalYearProject.Controllers
 
         {
            // var pageNumber = 1; 
-            var pageSize = 5;
+            var pageSize = 10;
             
         //    return View(pagedData);
 
@@ -107,6 +108,15 @@ namespace FinalYearProject.Controllers
             }
             if (Request.Cookies["LIUID"] != null) { 
             ViewBag.LIUID = Request.Cookies["LIUID"].ToString();
+            }
+
+            try
+            {
+                ViewBag.AddToWishList = HttpContext.Request.Cookies["wishList"].ToString();
+            }
+            catch
+            {
+
             }
             return View(P);
         }
@@ -206,7 +216,39 @@ namespace FinalYearProject.Controllers
 
             return RedirectToAction("Login");
         }
+        [HttpGet]
+        public IActionResult UserProfile()
+        {
+            int id =Convert.ToInt32(HttpContext.Session.GetString("LIUID"));
+            return View(ORM.UserSystem.Where(m=>m.Id == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public IActionResult UserProfile(UserSystem F, IFormFile UserImage)
+        {
 
+            String FilePath = ENV.WebRootPath + "/WebData/Images/";
+            String FileName = Guid.NewGuid().ToString();
+            String FileExtension = Path.GetExtension(UserImage.FileName);
+
+            FileStream FS = new FileStream(FilePath + FileName + FileExtension, FileMode.Create);
+            UserImage.CopyTo(FS);
+            FS.Close();
+            var SaveFN = FilePath + "" + FileName + "" + FileExtension;
+
+
+
+            var user= ORM.UserSystem.Where(m=>m.Id == Convert.ToInt32(HttpContext.Session.GetString("LIUID"))).FirstOrDefault();
+            user.UserCountry = F.UserCountry;
+            user.UserContact = F.UserContact;
+            ORM.UserSystem.Update(user);
+            ORM.SaveChanges();
+            ViewBag.Message = "Your profile has been updated";
+
+            return RedirectToAction(nameof(FirstController.UserProfile));
+        }
+
+
+       
 
 
     }

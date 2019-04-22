@@ -61,72 +61,72 @@
 
 
                 @*@try
-                {
-                    @if (Images[0] != null)
                     {
-                        <li class="active" style="float:left">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%" />
-                            </a>
-                        </li>
-                    }}
-                catch (Exception e)
-                { }
+                        @if (Images[0] != null)
+                        {
+                            <li class="active" style="float:left">
+                                <a data-target="#pic-1" data-toggle="tab">
+                                    <img src="@Images[0]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                                </a>
+                            </li>
+                        }}
+                    catch (Exception e)
+                    { }
 
-                @try
-                {
-                    @if (Images[1] != null)
+                    @try
                     {
-                        <li class="active text-center" style=" float:left">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%" />
-                            </a>
-                        </li>
-                    }}*@
+                        @if (Images[1] != null)
+                        {
+                            <li class="active text-center" style=" float:left">
+                                <a data-target="#pic-1" data-toggle="tab">
+                                    <img src="@Images[1]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                                </a>
+                            </li>
+                        }}*@
                 @*catch (Exception e)
-                { }
+                    { }
 
-                @try
-                {
-                    @if (Images[2] != null)
+                    @try
                     {
-                        <li class="active" style="float:left">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[2]" alt='' title="@Model.ProductName" style="max-width:100%" />
-                            </a>
-                        </li>
-                    }}
-                catch (Exception e)
-                { }
+                        @if (Images[2] != null)
+                        {
+                            <li class="active" style="float:left">
+                                <a data-target="#pic-1" data-toggle="tab">
+                                    <img src="@Images[2]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                                </a>
+                            </li>
+                        }}
+                    catch (Exception e)
+                    { }
 
 
-                @try
-                {*@
-                    @*@if (Images[3] != null)
+                    @try
+                    {*@
+                @*@if (Images[3] != null)
+                        {
+                            <li class="active" style="float:left">
+                                <a data-target="#pic-1" data-toggle="tab">
+                                    <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-width:100%" />
+                                </a>
+                            </li>
+                        }}
+                    catch (Exception e)
+                    { }
+
+
+                    @try
                     {
-                        <li class="active" style="float:left">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[3]" alt='' title="@Model.ProductName" style="max-width:100%" />
-                            </a>
-                        </li>
-                    }}
-                catch (Exception e)
-                { }
-
-
-                @try
-                {
-                    @if (Images[4] != null)
-                    {
-                        <li class="active" style="float:left">
-                            <a data-target="#pic-1" data-toggle="tab">
-                                <img src="@Images[4]" class="img img-responsive" style="max-width:100%" />
-                            </a>*@
-                        @*</li>
+                        @if (Images[4] != null)
+                        {
+                            <li class="active" style="float:left">
+                                <a data-target="#pic-1" data-toggle="tab">
+                                    <img src="@Images[4]" class="img img-responsive" style="max-width:100%" />
+                                </a>*@
+                @*</li>
+                        }
                     }
-                }
-                catch (Exception e)
-                { }*@
+                    catch (Exception e)
+                    { }*@
             </ul>
         </div>
 
@@ -150,7 +150,7 @@
                     <div class="action">
 
                         <a href="@Model.ProductUrl" class="btn btn-info btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</a>
-                        <button class="btn btn-lg btn-lg active" type="button"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</button>
+                        <a href="/Second/AdToWishlist?id=@Model.ProductId" type="button" class="btn btn-info btn-lg btn-lg active"><span class="glyphicon glyphicon-heart-empty"> </span>Add to Wishlist</a>
 
                     </div>
 
@@ -158,7 +158,7 @@
             </div>}
 
     </div>
-    @{ 
+    @{
         Website W = ViewBag.Web;
 
     }
@@ -190,75 +190,112 @@
     @if (Model != null)
     {
 
-    <div class="container-fluid text-success alter alert-success">
-        <h2 class="card-header">You Can Also Like</h2>
-        @if (ViewBag.Related != null)
-        {
-            foreach (var item in ViewBag.Related)
-            {
-                @if (item.ProductId == Model.ProductId)
-                {
-                    continue;
-                }
-        <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-            <img src="@item.ProductImage" alt="Card image">
-            <div>
-                <br />
-                <a href="/First/ProductDetail?id=@item.ProductId"><strong>@item.ProductName</strong></a>
-            </div>
-            <br />
-            <div>
-                <span>@item.ProductPrice</span>
-            </div>    <br />
-            <div>
-                <a href="@item.ProductUrl" class="btn btn-info btn-lg" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</a>
+        <div class="container-fluid text-success alter alert-success ">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <h2 class="card-header " >You Can Also Like</h2>
+                <div class="sliderr">
+                    @if (ViewBag.Related != null)
+                    {
+                        foreach (var item in ViewBag.Related)
+                        {
+                            @if (item.ProductId == Model.ProductId)
+                            {
+                                continue;
+                            }
+                            <div class="text-center">
+                                <img src="@item.ProductImage" alt="Card image">
+                                <div class="ProjectDetail">
+                                    <br />
+                                    <a href="/First/ProductDetail?id=@item.ProductId"><strong>@item.ProductName</strong></a>
+                                </div>
+                                <br />
+                                <div>
+                                    <span>@item.ProductPrice</span>
+                                </div>    <br />
+                                <div>
+                                    <a href="/First/ProductDetail?id=@item.ProductId" class="btn btn-info btn-sm">Deatil</a>
+
+                                    <a href="@item.ProductUrl" class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-shopping-cart"> </span>add to cart</a>
+
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+
             </div>
         </div>
-                }
-            }
-        
-    </div>
-        
     }
+
 </div><br /> <br /> <br />
 
 <div id="disqus_thread" class="container-fluid"></div>
 
 @section Scripts{
 
-@*<script>
+    <script>
 
-    $(document).ready(function () {
-        $('img')
-            .wrap('<span style="display:inline-block"></span>')
-            .css('display', 'block')
-            .parent()
-            .zoom();
-        $('.photo')
-            .wrap('<span style="display:inline-block"></span>')
-            .css('display', 'block')
-            .parent()
-            .zoom();
-    });
-</script>*@
+        $('.sliderr').slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            arrows: false,
+            autoPlay: true,
+            autoPlaySpeed: 0,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+
+    </script>
+
+
 
     <script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-                    var disqus_config = function () {
-                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                    (function () { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                s.src = 'https://thetaproject.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+                            var disqus_config = function () {
+                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thetaproject.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
 
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

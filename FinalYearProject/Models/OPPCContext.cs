@@ -19,15 +19,16 @@ namespace FinalYearProject.Models
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<UserSystem> UserSystem { get; set; }
         public virtual DbSet<Website> Website { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Server=MRAJMAL\\SQLEXPRESS;Database=OPPC;Trusted_Connection=True;User ID=sa;Password=ajmal");
-//            }
-//        }
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //                optionsBuilder.UseSqlServer("Server=MRAJMAL\\SQLEXPRESS;Database=OPPC;Trusted_Connection=True;User ID=sa;Password=ajmal");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -75,7 +76,9 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.DiscountedPrice)
                     .HasColumnName("Discounted_Price")
-                    .HasColumnType("decimal(18, 0)");
+                    .HasMaxLength(50);
+
+                
 
                 entity.Property(e => e.ProductBrand)
                     .HasColumnName("Product_Brand")
@@ -105,8 +108,7 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.ProductPrice)
                     .HasColumnName("Product_Price")
-                    .HasColumnType("decimal(18, 0)");
-
+                     .HasMaxLength(50);
                 entity.Property(e => e.ProductRating)
                     .HasColumnName("Product_Rating")
                     .HasMaxLength(50);
@@ -183,6 +185,11 @@ namespace FinalYearProject.Models
                 entity.Property(e => e.UserType)
                     .HasColumnName("User_Type")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.FaceBookID)
+                   .HasColumnName("FaceBookID")
+                   .HasMaxLength(50);
+
             });
 
             modelBuilder.Entity<Website>(entity =>
@@ -199,6 +206,23 @@ namespace FinalYearProject.Models
 
                 entity.Property(e => e.WebsiteUrl)
                     .HasColumnName("Website_Url")
+                    .HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.Property(e => e.ContactId).HasColumnName("Contact_Id");
+
+                entity.Property(e => e.ContactName)
+                  .HasColumnName("Contact_Name")
+                  .HasMaxLength(50);
+
+                entity.Property(e => e.ContactEmail)
+                    .HasColumnName("Contact_Email")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.ContactMsg)
+                    .HasColumnName("Contact_Msg")
                     .HasMaxLength(500);
             });
         }

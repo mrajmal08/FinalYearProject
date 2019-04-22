@@ -12,6 +12,7 @@ using LinqToExcel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace FinalYearProject.Controllers
 {
@@ -101,12 +102,19 @@ namespace FinalYearProject.Controllers
                         }
                             Product oP = new Product();
                             oP.ProductName = item[0] == null ? "" : item[0].ToString();
-                            oP.ProductPrice = Convert.ToDecimal(item[1] == null ? "" : item[1].ToString());
+                        try
+                        {
+                            oP.ProductPrice =item[1] == null ? "" : item[1].ToString();
+                        }
+                        catch(Exception e)
+                        {
+                            ViewBag.message = "";
+                        }
                             oP.ProductImage = item[2] == null ? "" : item[2].ToString();
                             oP.ProductUrl = item[3] == null ? "" : item[3].ToString();
                             oP.ProductBrand = item[4] == null ? "" : item[4].ToString();
                             oP.ProductRating = item[10] == null ? "" : item[10].ToString();
-                            oP.DiscountedPrice = Convert.ToDecimal(item[8] == null ? "" : item[8].ToString()); ;
+                            oP.DiscountedPrice =item[8] == null ? "" : item[8].ToString();
                             oP.CategoryId = ORM.Category.Where(m => m.CategoryName.Equals(item[6])).ToList<Category>().FirstOrDefault().CategoryId;
                             ORM.Product.Add(oP);
                             ORM.SaveChanges();
@@ -125,6 +133,87 @@ namespace FinalYearProject.Controllers
 
             }
 
+        // Code for sign in with facebook data store in data base
+        [HttpPost]
+        public JsonResult CheckIfAlreadyExist(string FaceBookID,string FirstName, string LastName, string Email, String ProfilePicture)
+        {
+            UserSystem OUsers = null;
+            bool Result = false;
+            
+            OUsers = ORM.UserSystem.Where(m => m.FaceBookID == FaceBookID).FirstOrDefault();
+            if (OUsers != null)
+            {
+                OUsers.UserSname = LastName;
+                OUsers.UserEmail = Email;
+                OUsers.UserImage = ProfilePicture;
+
+                ORM.UserSystem.Update(OUsers);
+                ORM.SaveChanges();
+
+                Result = true;
+                HttpContext.Session.SetString("LIUID",Convert.ToString(OUsers.Id));
+
+            }
+            else
+            {
+              
+                
+                OUsers = new UserSystem
+                {
+                    
+                    UserFname = FirstName, FaceBookID = FaceBookID,
+                    UserSname = LastName, UserEmail = Email,
+                    UserImage = ProfilePicture,
+                   
+                };
+                using (var tr = ORM.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ORM.UserSystem.Add(OUsers);
+                        ORM.SaveChanges();
+                        tr.Commit();
+                        Result = true;
+                        HttpContext.Session.SetString("LIUID", OUsers.Id.ToString());
+                        TempData["GreetingMessage"] = "You are successfully registered";
+                    }
+                    catch (Exception ex)
+                    {
+                        string e = ex.Message;
+                        tr.Rollback();
+                    }
+                }
+            }
+
+           
+            return Json(Result);
         }
+
+        [HttpGet]
+        public IActionResult ContactUS()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ContactUs(Contact C) {
+
+
+            ORM.Contact.Add(C);
+            ORM.SaveChanges();
+            ViewBag.message = "You details has been sent to admin";
+
+            return View(C);
+
+        }
+
+        public IActionResult AdToWishlist(int id)
+        {
+            HttpContext.Response.Cookies.Append("wishList", id.ToString());
+
+            return RedirectToAction("ProductDetail", "First",new {id =id });
+        }
+
     }
+}
 
